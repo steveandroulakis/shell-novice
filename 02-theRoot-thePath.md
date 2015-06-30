@@ -1,7 +1,7 @@
 ---
 layout: page
 title: The Unix Shell
-subtitle: The root and The path
+subtitle: The root and the path
 minutes: 25-30
 ---
 > ## Learning Objectives {.objectives}

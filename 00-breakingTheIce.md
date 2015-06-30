@@ -59,7 +59,7 @@ __Common tools:__
 - `nesoni` set of tools (I'll cover this later)
   * `clip` use nesoni clip to clip low quality and adapters. It has support for many common adapters
 
-### A keyboard is intrinsicly faster than a mouse
+### A keyboard is intrinsically faster than a mouse
 
 It is given that keyboard is faster at doing common tasks you could do with a mouse e.g:
 
