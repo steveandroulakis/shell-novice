@@ -39,9 +39,9 @@ These lessons will start you on a path towards using these resources effectively
 
 ## Topics
 
-1.  [Introducing the Shell](00-intro.html)
-2.  [Files and Directories](01-filedir.html)
-3.  [Creating Things](02-create.html)
+1.  [Breaking The Ice](00-breakingTheIce.html)
+2.  [CLI inroduction](01-cliIntro.html)
+3.  [The root and The path](02-theRoot-thePath.html)
 4.  [Pipes and Filters](03-pipefilter.html)
 5.  [Loops](04-loop.html)
 6.  [Shell Scripts](05-script.html)

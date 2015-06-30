@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>Software Carpentry: The Unix Shell</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body class="lesson">
+    <div class="container card">
+      <div class="banner">
+        <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        </a>
+      </div>
+      <article>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h1 class="title">The Unix Shell</h1>
+          <h2 class="subtitle">CLI First type</h2>
+<section class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+</div>
+<div class="panel-body">
+<ul>
+<li>Introduce Command-line Interface</li>
+<li>Introduce the lingo</li>
+<li>Execute first command <code>ssh</code></li>
+<li>Present CLI as an alternative to GUI</li>
+</ul>
+</div>
+</section>
+<h3 id="command-line-interface-or-cli-for-short">Command-line interface or CLI for short</h3>
+<p>We saw in previous section that you can operate an application such as web browser or MS office suites through simply pressing combination of keyboard keys. This is cool and great time saver.</p>
+<p>Let me solidify why we want to use keyboard keys instead of mouse:</p>
+<ol style="list-style-type: decimal">
+<li>Speed and therefore time</li>
+</ol>
+<ul>
+<li>hands always on the <strong>keyboard</strong></li>
+<li>no need to look <strong>just do it</strong></li>
+</ul>
+<p>Now lets utilise keyboard system wide.</p>
+<p>CLI is this interactive and responsive thing, where you will need to type things in and you will get your response printed on the screen. The technical term for this is <strong>read-evaluate-print loop</strong>, where user needs:</p>
+<ol style="list-style-type: decimal">
+<li><strong>type a command</strong></li>
+<li>then press enter (return) key</li>
+<li>computer will read the command</li>
+<li><strong>execute the command</strong></li>
+<li>show the <strong>output on the screen</strong></li>
+</ol>
+<p>The key to the Command-Line Interface:</p>
+<ul>
+<li>you will have to type</li>
+<li>in specific language - BASH</li>
+<li>read your answers of the screen</li>
+</ul>
+<h3 id="cli-is-full-of-lingo-just-learn-it">CLI is full of lingo, just learn it</h3>
+<ul>
+<li>folder == <strong>directory</strong> AND directory == folder</li>
+<li><strong>CLI</strong> == terminal == SHELL (not exactly, but for us it is)</li>
+<li>It is a generic name describing an interface</li>
+<li>Terminal comes from old days when the only way to access computer was through physical terminal. Actually correct language is terminal emulator, but gets shorten to terminal!</li>
+<li>SHELL is an interpreter that conveys specific language that you type (BASH) to something that computer can understand.</li>
+<li>can’t click on anything in the terminal. Forget about mouse, can only navigate using <strong>keyboard</strong></li>
+<li><code>$</code> this sign means <strong>prompt</strong> - “a message or symbol on a screen to show that the system is waiting user’s input”</li>
+<li><strong>Execute</strong> == pressing Enter on the keyboard</li>
+<li>all commands are <strong>executed at the prompt</strong></li>
+<li>launch == open == <strong>start</strong> == double click</li>
+<li>server == just another computer much like you laptop, which can also server some files or other content</li>
+</ul>
+<h3 id="let-us-execute-our-first-command-ssh">Let us execute our first command <code>ssh</code></h3>
+<p>Execute <code>ssh john@crunch.erc.monash.edu</code> insert your login name</p>
+<p><em>In this case <code>Serverauditor</code> is our terminal emulator and this will be our CLI</em></p>
+<p>To explain what just happened. <code>crunch.erc.monash.edu</code> is computer with fancy name. The name could have been anything. You don’t even need to have a name. The name is an abstraction for an numeric IP address. In plain English command means log john to crunch machine, very simple. Three parts to it:</p>
+<ul>
+<li>log me in <code>ssh</code></li>
+<li>who you are <code>john</code></li>
+<li>where you want to be <code>crunch.erc.monash.edu</code></li>
+</ul>
+<p>And now we are on the remote machine else where and who really know where… You can <code>ssh</code> to any computer you want (provided some settings)</p>
+<p>I’m not clear why should I use <code>ssh</code> ..?</p>
+<ul>
+<li>to log in to another computer</li>
+<li>because it has many more CPU’s and RAM (memory)</li>
+<li>because you can leave it running over night, days, weeks, you don’t ever shut it down</li>
+<li>because it has all the tools installed</li>
+<li>because your data might comes straight to that server</li>
+</ul>
+<p>But really you can run your tools on you local machine a.k.a your laptop if you want.</p>
+<p>This brings me back to this same, important point why CLI and so I would like to re-solidify it again</p>
+<h3 id="cli-is-just-an-interface-to-operate-a-hardware-bunch-a.k.a-computer">CLI is just an interface to operate a hardware bunch a.k.a computer</h3>
+<p>This isn’t much different from GUI where you don’t have to type anything in as such, but you still need to read off the screen, accept it is more appealing visually or some might thing so. To me it’s just an extra layer of distraction.</p>
+<p>GUI may appear intuitive to some or most of users, however I would argue the opposite CLI is much easier and much more intuitive once one has developed appreciation for CLI. Of course these days it is rather hard to avoid GUI. Drawing and graphical editing is certainly best done with the mouse, but we are not in that kind of industry. I believe majority of bio-analysis is done using keyboard rather than mouse. More importantly majority of bio-analysis should be done using keyboard rather than mouse.</p>
+<p>Why CLI..?</p>
+<p><strong>convincing</strong></p>
+<ul>
+<li>faster to type then point and click</li>
+<li>easy to write and publish your methods sections</li>
+<li>reproducible, commands either work or don’t - no two ways about it</li>
+<li>easy to communicate commands appose to explaining which drop down menu</li>
+</ul>
+<p><strong>no so much</strong></p>
+<ul>
+<li>can automate and run multiple jobs at once <em>I don’t care</em></li>
+<li>access to high performance computers and clusters <em>I still don’t care</em></li>
+<li>a lot of tools don’t have graphical interface <em>Well too bad, they should !</em></li>
+</ul>
+<p>Speaking frankly nothing is stopping you from using GUI and please do, because that will make me always look much more efficient just because I am too lazy not to be lazy and press keyboard keys.</p>
+<p>Lets leap into CLI..</p>
+        </div>
+      </div>
+      </article>
+      <div class="footer">
+        <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
+        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/shell-novice">Source</a>
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+  </body>
+</html>

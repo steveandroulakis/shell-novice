@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>Software Carpentry: The Unix Shell</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body class="lesson">
+    <div class="container card">
+      <div class="banner">
+        <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        </a>
+      </div>
+      <article>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h1 class="title">The Unix Shell</h1>
+          <h2 class="subtitle">Breaking the ice</h2>
+<section class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+</div>
+<div class="panel-body">
+<ul>
+<li>Introduce common biological files</li>
+<li>Introduce overall theme for this two days workshop</li>
+<li>Focus on RNA-seq pipeline</li>
+<li>Present keyboard as your friend</li>
+</ul>
+</div>
+</section>
+<h3 id="most-common-biological-files">Most common biological files:</h3>
+<ul>
+<li>FASTQ “raw data” your sequenced reads with quality information per base</li>
+<li>FASTA can hold any sequence information where each new sequence seprated by “&gt;” sign</li>
+<li>SAM/BAM “Sequence Alignment Map” and B for binary. SAM holds alot of information including</li>
+<li>mapped reads coordinats</li>
+<li>also holds quality information per base</li>
+<li>information about sequence mismatch</li>
+<li>custom encoded information e.g poly(A) tail length information</li>
+<li>GTF/GFF annotation files</li>
+</ul>
+<h3 id="two-steps-bioinformatics">Two steps bioinformatics:</h3>
+<ol style="list-style-type: decimal">
+<li><p><strong>Getting the data</strong> and getting the data into the right format (can be troublesome and time consuming) - we need BASH (CLI) skills to get the data and to do primary filtering on the data</p></li>
+<li><p><strong>Analyse the data</strong> (obviously can be much more time consuming (don’t undervalue step one though!) - this where we need R language to get the answers from our digital-raw data</p></li>
+</ol>
+<p>For example you most certainly can grab your BAM files from else where and start you anaylisis from that point onward and in most cases this should be fine, particular when you are doing some what standard RNA-seq on mouse for differentical gene expression. However if you are doing some a bit more out of ordinary or novel than getting the data can be tricky to get. Running default parametrs isn’t good any more.</p>
+<h3 id="common-rna-seq-pipeline-workflow-from-fastq-to-bam-and-beyond">Common RNA-seq pipeline workflow (from FASTQ to BAM and beyond)</h3>
+<ol style="list-style-type: decimal">
+<li>Get your FASTQ files - download ..?</li>
+</ol>
+<ul>
+<li>Clip your FASTQ files - quality and adapter clipping (sometimes)</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Get your BAM files - Align your FASTQ files to the reference genome</li>
+<li>Get your count - Count how many reads fallen onto the gene feature</li>
+</ol>
+<p><strong>Associate tools:</strong></p>
+<ul>
+<li><code>BWA</code> set of tools used for FASTQ alignment</li>
+<li><code>bwa index</code> index your reference genome - must do !</li>
+<li><code>bwa mem</code> running actuall alignment and generating SAM file</li>
+<li><code>SAMtools</code> set of tools for SAM/BAM files manipulation</li>
+<li><code>samtools view</code> to view the files different options below
+<ul>
+<li><code>-h</code></li>
+<li><code>-c</code></li>
+<li><code>-f 4</code></li>
+<li><code>-Sb</code></li>
+</ul></li>
+<li><code>samtools sort</code> sort the file either by coordinats or by chromosome name</li>
+<li><code>samtools index</code></li>
+<li><code>featureCount</code> tool for counting how many reads have mapped onto the gene</li>
+<li><code>nesoni</code> set of tools used that I want go into</li>
+<li><code>clip</code> use nesoni clip to clip low quality and adapters. It has a list of many common adapters</li>
+</ul>
+<h3 id="keyboard-is-intrinsicly-faster-than-a-mouse">Keyboard is intrinsicly faster than a mouse</h3>
+<p>It is given that keyboard is faster at doing the same thing you would with a mouse e.g:</p>
+<ul>
+<li>searching for a browser and launching it</li>
+<li>ctrl^l - highlights URL</li>
+<li>ctrl^k - places cursor in the search bar</li>
+<li><p>alt^ (arros left of right) - to move to the previous or next pages</p></li>
+<li>copy and paste</li>
+<li><code>ctrl^c</code> copy</li>
+<li><code>ctrl^v</code> paste</li>
+<li><code>ctrl^s</code> save</li>
+<li><code>ctrl^o</code> open</li>
+<li><code>ctrl^a</code> highlight all text</li>
+<li><code>ctrl^p</code> print</li>
+<li><code>ctrl^z</code> undo</li>
+<li><code>ctrl^b</code> make bold</li>
+<li><code>ctrl^i</code> make italic</li>
+<li><code>ctrl^u</code> make underline</li>
+<li><code>ctrl^n</code> open new window</li>
+<li><p><code>ctrl^f</code> find</p></li>
+</ul>
+<p>These commands are inbuild in us. <code>if not</code> they are your biggest time saver while working on computer. <em>I am not a faster worker. I am efficient worker. I just know and love my shortcuts</em>. All I want from you is to appreciate that keyboard enables you to operate computer at the different level, level where you instruct computer using keyboard rather than point and click and the pay off is <strong>time</strong>.</p>
+<p>I don’t have time to:</p>
+<ol style="list-style-type: decimal">
+<li>rich across to a mouse</li>
+<li>jerk a mouse a bit and simultaneously find search for a pointer on the screen</li>
+<li>navigate to firefox icon and double click on it</li>
+</ol>
+<p>This is too long…</p>
+<p>This brings me to the next point</p>
+<p><em>Useful resources</em></p>
+<p>Web browser keyboard shortcuts</p>
+<ul>
+<li><a href="https://support.mozilla.org/en-US/kb/keyboard-shortcuts-perform-firefox-tasks-quickly#w_navigation">Firefox keyboard shortcuts</a></li>
+<li><a href="https://support.google.com/chrome/answer/157179?hl=en">Chrome keyboard shortcuts</a></li>
+</ul>
+        </div>
+      </div>
+      </article>
+      <div class="footer">
+        <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
+        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/shell-novice">Source</a>
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+  </body>
+</html>

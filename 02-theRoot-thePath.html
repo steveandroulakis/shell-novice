@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>Software Carpentry: The Unix Shell</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body class="lesson">
+    <div class="container card">
+      <div class="banner">
+        <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        </a>
+      </div>
+      <article>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h1 class="title">The Unix Shell</h1>
+          <h2 class="subtitle">Files and Directories</h2>
+<section class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+</div>
+<div class="panel-body">
+<ul>
+<li>First two commands and cat-dog behaviour</li>
+<li>Introduction to BASH</li>
+<li>Introduction to full path</li>
+<li>Explaining relative path and solidifying path concept</li>
+<li>How to navigate in shell</li>
+</ul>
+</div>
+</section>
+<p>Once you log in to your remote machine. The first time is always unfamiliar and confusing. I remember my first logins to new account on a new server I run <code>ls</code> and said ’There are no files here` that becaue this is YOUR new accoutn.. In this situation you really want to behave like a cat, who has been put in a new house. That is it will walk around sniffing everywhere, going to every conner with a grumpy face, hatting you and everyone around him. And so I want you to behave in exactly the same way. Look around the server explore every conner so to speak and find your place. Once you’ve become familiar with your new environment you will naturally start having dog like behaviour. That is open the door and straight to the couch!</p>
+<h3 id="change-directory-and-list-content">Change Directory and List content</h3>
+<p>Lets start exploring from the start, from the ground floor up, from the roots of the tree from the <strong>root</strong></p>
+<p><em>remember our that we need to type commands in, execute them and read the reponce</em></p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> /</code></pre>
+<pre class="output"><code>/$</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">/</span>$ <span class="kw">ls</span></code></pre>
+<pre class="output"><code>bin  boot  dev  etc  home  initrd.img  initrd.img.old  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin
+srv  sys  tmp  usr  var  vmlinuz  vmlinuz.old</code></pre>
+<p>Here is the visual how it looks (upside down root tree, that’s because we down under !)</p>
+<div class="figure">
+<img src="fig/filesystem.svg" alt="The File System" /><p class="caption">The File System</p>
+</div>
+<p>Inside root all other directories with several other directories: - <code>bin</code> (which is where some built-in programs are stored), - <code>data</code> (for miscellaneous data files), - <code>Users</code> (where users’ personal directories are located), - <code>tmp</code> (for temporary files that don’t need to be stored long-term), and so on:</p>
+<p><em>Keep exploring</em></p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">/</span>$ <span class="kw">cd</span> /mnt/</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">/mnt</span>$ <span class="kw">ls</span></code></pre>
+<pre class="output"><code>lost+found shared</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">/mnt</span>$ <span class="kw">cd</span> /shared/</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">/mnt/shared</span>$ <span class="kw">ls</span></code></pre>
+<pre class="output"><code>data RNAseq</code></pre>
+<p>Note two things here:</p>
+<ol style="list-style-type: decimal">
+<li>how text increases and decreases on the left hand side as you move around <em>Reflects the path</em></li>
+<li>that no matter how deep in the directories you are, you can always type <code>cd /</code> and get to the root</li>
+</ol>
+<h3 id="bourne-again-shell-or-bash-for-short">Bourne Again SHell or BASH for short</h3>
+<p>As at was mentioned previously <code>shell</code> is an intepreter. It is going to interpreate what we type for computer. However we do need to type in specific language and it will be <code>BASH</code>, because it sound rought.</p>
+<ul>
+<li>Havea you tried BASHing it..?</li>
+<li>Just give it a good BASH</li>
+<li>BASH quick anad dirty solution to everything</li>
+</ul>
+<p>BASH as one specific language all Unix computers understand.</p>
+<p>First two important aspects about CLI and BASH</p>
+<ol style="list-style-type: decimal">
+<li>Tab expand - have your little finger on the tab key all the time sorf of thing</li>
+</ol>
+<ul>
+<li>one tab autocompletes</li>
+<li>two tabs gives you ambigious options</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Arrows key up - all commands stored in history. You can access them by scrolling through them one at a time</li>
+</ol>
+<p><em>Continue exploring but this time use tab expand</em></p>
+<h3 id="introduce-full-path">Introduce full path</h3>
+<p>When you hike you park your car and hike up. It is imposibble for you to go pass a place and not to have in you path right..? This is fundamental idea about path. You don’t have to stop and rest at every break point, but if you have passed on your way up it was in your path. This is very simple.</p>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>Path</h2>
+</div>
+<div class="panel-body">
+<p>Notice that there are two meanings for the <code>/</code> character. When it appears at the front of a file or directory name, it refers to the root directory. When it appears <em>inside</em> a name, it’s just a separator.</p>
+</div>
+</aside>
+<p>The leading <code>/</code> tells the computer to follow the path from the root of the file system, so it always refers to exactly one directory, no matter where we are when we run the command.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> /mnt/shared/</code></pre>
+<p>I start at the root, nextt stop <code>mnt</code>, I don’t want to stop at <code>mnt</code>, next stop at <code>shared</code> <sub>~</sub> {.bash} /mnt/shared$ ls <sub><sub><sub> </sub></sub></sub> {.output} data RNAseq <sub>~</sub></p>
+<p>It doesn’t matter where you are as long as you follow <strong>full path</strong> you are not going to get lost</p>
+<h3 id="why-can-i-not-start-from-where-i-left-of..">Why can I not start from where I left of..?</h3>
+<p>Exactly ! You don’t always have to start at the root and traverse down. You can start <strong>path</strong> from where you are at.</p>
+<ul>
+<li><code>pwd</code> print working directory, which just tells you where you are at</li>
+</ul>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">pwd</span></code></pre>
+<pre class="output"><code>/home/john</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> /mnt </code></pre>
+<pre class="output"><code>lost+found shared</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">/mnt</span>$ <span class="kw">cd</span> shared/RNAseq</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">/mnt/shared/RNAseq</span>$ <span class="kw">pwd</span></code></pre>
+<pre class="output"><code>mapping  raw_data  ref_data</code></pre>
+<h3 id="shell-navigation-in-general">Shell navigation in general</h3>
+<ul>
+<li><code>~ == /home/john</code> tilda is a convinient short cut</li>
+<li><code>.</code> is current directory</li>
+<li><code>..</code> is parent directory relative to where you are</li>
+<li><code>cd ..</code> is to go up a directory</li>
+</ul>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">pwd</span></code></pre>
+<pre class="output"><code>/home/john</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">/home/john</span>$ <span class="kw">cd</span> ..</code></pre>
+<pre class="output"><code>/home/</code></pre>
+<h3 id="appreciate-the-dot-and-dot-dot">Appreciate the dot and dot dot</h3>
+<ul>
+<li><code>.</code> is current directory. It means definatelly from this, current directory e.g vim or ./vim will run two different programs</li>
+</ul>
+<p>The special directory <code>..</code> doesn’t usually show up when we run <code>ls</code>. If we want to display it, we can give <code>ls</code> the <code>-a</code> flag:</p>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Relative path resolution</h2>
+</div>
+<div class="panel-body">
+<p>If <code>pwd</code> displays <code>/Users/thing</code>, what will <code>ls ../backup</code> display?</p>
+<ol style="list-style-type: decimal">
+<li><code>../backup: No such file or directory</code></li>
+<li><code>2012-12-01 2013-01-08 2013-01-27</code></li>
+<li><code>2012-12-01/ 2013-01-08/ 2013-01-27/</code></li>
+<li><code>original pnas_final pnas_sub</code></li>
+</ol>
+</div>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span><code>ls</code> reading comprehension</h2>
+</div>
+<div class="panel-body">
+<p>If <code>pwd</code> displays <code>/Users/backup</code>, and <code>-r</code> tells <code>ls</code> to display things in reverse order, what command will display:</p>
+<pre><code>pnas-sub/ pnas-final/ original/</code></pre>
+<ol style="list-style-type: decimal">
+<li><code>ls pwd</code></li>
+<li><code>ls -r -F</code></li>
+<li><code>ls -r -F /Users/backup</code></li>
+<li>Either #2 or #3 above, but not #1.</li>
+</ol>
+</div>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Default <code>cd</code> action</h2>
+</div>
+<div class="panel-body">
+<p>What does the command <code>cd</code> without a directory name do?</p>
+<ol style="list-style-type: decimal">
+<li>It has no effect.</li>
+<li>It changes the working directory to <code>/</code>.</li>
+<li>It changes the working directory to the user’s home directory.</li>
+<li>It produces an error message.</li>
+</ol>
+</div>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Exploring more <code>ls</code> arguments</h2>
+</div>
+<div class="panel-body">
+<p>What does the command <code>ls</code> do when used with the <code>-s</code> and <code>-h</code> arguments</p>
+</div>
+</section>
+        </div>
+      </div>
+      </article>
+      <div class="footer">
+        <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
+        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/shell-novice">Source</a>
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+  </body>
+</html>
