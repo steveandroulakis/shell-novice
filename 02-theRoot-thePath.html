@@ -27,7 +27,7 @@
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <h1 class="title">The Unix Shell</h1>
-          <h2 class="subtitle">Files and Directories</h2>
+          <h2 class="subtitle">The root and The path</h2>
 <section class="objectives panel panel-warning">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
@@ -46,7 +46,7 @@
 <h3 id="change-directory-and-list-content">Change Directory and List content</h3>
 <p>Lets start exploring from the start, from the ground floor up, from the roots of the tree from the <strong>root</strong></p>
 <p><em>remember our that we need to type commands in, execute them and read the reponce</em></p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> /</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span>$ <span class="kw">cd</span> /</code></pre>
 <pre class="output"><code>/$</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">/</span>$ <span class="kw">ls</span></code></pre>
 <pre class="output"><code>bin  boot  dev  etc  home  initrd.img  initrd.img.old  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin
@@ -99,7 +99,7 @@ srv  sys  tmp  usr  var  vmlinuz  vmlinuz.old</code></pre>
 </div>
 </aside>
 <p>The leading <code>/</code> tells the computer to follow the path from the root of the file system, so it always refers to exactly one directory, no matter where we are when we run the command.</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> /mnt/shared/</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span>$ <span class="kw">cd</span> /mnt/shared/</code></pre>
 <p>I start at the root, nextt stop <code>mnt</code>, I don’t want to stop at <code>mnt</code>, next stop at <code>shared</code> <sub>~</sub> {.bash} /mnt/shared$ ls <sub><sub><sub> </sub></sub></sub> {.output} data RNAseq <sub>~</sub></p>
 <p>It doesn’t matter where you are as long as you follow <strong>full path</strong> you are not going to get lost</p>
 <h3 id="why-can-i-not-start-from-where-i-left-of..">Why can I not start from where I left of..?</h3>
@@ -107,9 +107,9 @@ srv  sys  tmp  usr  var  vmlinuz  vmlinuz.old</code></pre>
 <ul>
 <li><code>pwd</code> print working directory, which just tells you where you are at</li>
 </ul>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">pwd</span></code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span>$ <span class="kw">pwd</span></code></pre>
 <pre class="output"><code>/home/john</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> /mnt </code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span>$ <span class="kw">cd</span> /mnt </code></pre>
 <pre class="output"><code>lost+found shared</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">/mnt</span>$ <span class="kw">cd</span> shared/RNAseq</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">/mnt/shared/RNAseq</span>$ <span class="kw">pwd</span></code></pre>
@@ -121,64 +121,59 @@ srv  sys  tmp  usr  var  vmlinuz  vmlinuz.old</code></pre>
 <li><code>..</code> is parent directory relative to where you are</li>
 <li><code>cd ..</code> is to go up a directory</li>
 </ul>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>Tilda</h2>
+</div>
+<div class="panel-body">
+<p>The reason you never see <code>/home/john/</code> behiind your prompt, is because it is replaced by tilda. Can you see the tilda behind your prompt now ..?</p>
+</div>
+</aside>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>Dot and Dot Dot</h2>
+</div>
+<div class="panel-body">
+<p><code>.</code> is current directory. It means definatelly from this, current directory e.g vim or ./vim will run two different programs</p>
+</div>
+</aside>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">pwd</span></code></pre>
 <pre class="output"><code>/home/john</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">/home/john</span>$ <span class="kw">cd</span> ..</code></pre>
 <pre class="output"><code>/home/</code></pre>
-<h3 id="appreciate-the-dot-and-dot-dot">Appreciate the dot and dot dot</h3>
-<ul>
-<li><code>.</code> is current directory. It means definatelly from this, current directory e.g vim or ./vim will run two different programs</li>
-</ul>
-<p>The special directory <code>..</code> doesn’t usually show up when we run <code>ls</code>. If we want to display it, we can give <code>ls</code> the <code>-a</code> flag:</p>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Relative path resolution</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Get grasp of path</h2>
 </div>
 <div class="panel-body">
-<p>If <code>pwd</code> displays <code>/Users/thing</code>, what will <code>ls ../backup</code> display?</p>
 <ol style="list-style-type: decimal">
-<li><code>../backup: No such file or directory</code></li>
-<li><code>2012-12-01 2013-01-08 2013-01-27</code></li>
-<li><code>2012-12-01/ 2013-01-08/ 2013-01-27/</code></li>
-<li><code>original pnas_final pnas_sub</code></li>
+<li>get current directory</li>
+<li>go to the root</li>
+<li>go to the <code>/mnt/shared/</code></li>
+<li>have a looks what there</li>
+<li>visualy locate this course directory</li>
+<li>go into the course directory</li>
+<li>go into relevant day</li>
+<li>get your current directory</li>
+<li>Green sticky up if you got there safely</li>
 </ol>
-</div>
-</section>
-<section class="challenge panel panel-success">
-<div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span><code>ls</code> reading comprehension</h2>
-</div>
-<div class="panel-body">
-<p>If <code>pwd</code> displays <code>/Users/backup</code>, and <code>-r</code> tells <code>ls</code> to display things in reverse order, what command will display:</p>
-<pre><code>pnas-sub/ pnas-final/ original/</code></pre>
+<h2>Get grasp of full and relative paths</h2>
 <ol style="list-style-type: decimal">
-<li><code>ls pwd</code></li>
-<li><code>ls -r -F</code></li>
-<li><code>ls -r -F /Users/backup</code></li>
-<li>Either #2 or #3 above, but not #1.</li>
+<li>start from where you ended up from previous exercese</li>
+<li>go <code>/mnt/shared/</code> using full path</li>
+<li>look at the contetn</li>
+<li>get you current working directory</li>
+<li>go back to where you where using relative path</li>
 </ol>
-</div>
-</section>
-<section class="challenge panel panel-success">
-<div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Default <code>cd</code> action</h2>
-</div>
-<div class="panel-body">
-<p>What does the command <code>cd</code> without a directory name do?</p>
+<h2>Apreciate the dot and dot dot</h2>
 <ol style="list-style-type: decimal">
-<li>It has no effect.</li>
-<li>It changes the working directory to <code>/</code>.</li>
-<li>It changes the working directory to the user’s home directory.</li>
-<li>It produces an error message.</li>
+<li>stat from where you eneded up from precious exersice</li>
+<li>go up one directory</li>
+<li>go up one more directory</li>
+<li>get your current directory</li>
+<li>go back, two directories deep</li>
+<li>go back, two directories up, in one go, using dots only</li>
 </ol>
-</div>
-</section>
-<section class="challenge panel panel-success">
-<div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Exploring more <code>ls</code> arguments</h2>
-</div>
-<div class="panel-body">
-<p>What does the command <code>ls</code> do when used with the <code>-s</code> and <code>-h</code> arguments</p>
 </div>
 </section>
         </div>

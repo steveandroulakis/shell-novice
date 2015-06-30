@@ -83,9 +83,13 @@ I'm not clear why should I use `ssh` ..?
 - because it has all the tools installed 
 - because your data might comes straight to that server
 
-But really you can run your tools on you local machine a.k.a your laptop if you want.
+But really you can run your tools on your local machine a.k.a your laptop if you want.
 
 This brings me back to this same, important point why CLI and so I would like to re-solidify it again
+
+> ## How to copy and paste - terminal {.callout}
+> - `shift+ctrl^c` copy from terminal
+> - `shift+ctrl^v` paste to terminal
 
 ### CLI is just an interface to operate a hardware bunch a.k.a computer
 

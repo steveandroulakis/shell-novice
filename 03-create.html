@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>Software Carpentry: The Unix Shell</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body class="lesson">
+    <div class="container card">
+      <div class="banner">
+        <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        </a>
+      </div>
+      <article>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h1 class="title">The Unix Shell</h1>
+          <h2 class="subtitle">Creating Things</h2>
+<section class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+</div>
+<div class="panel-body">
+<ul>
+<li>Explain general syntax of the shell</li>
+<li>Explain commands options and arguments</li>
+<li>Just commands</li>
+</ul>
+</div>
+</section>
+<h3 id="shell-reads-commands.-commands-read-arguments">Shell reads commands. Commands read arguments</h3>
+<p>The way CLI works is that you tell it what needs to be done i.e here is command execute it. And it will do exactly that. But command itself demands more information i.e what do you want me to work with ..?</p>
+<ul>
+<li>some programs can only run by themselvs e.g <code>date</code>, <code>cal</code></li>
+<li>some programs can only run with give arguments e.g <code>mv</code>, <code>cp</code></li>
+<li>other programs can run either way, with or without parameters e.g <code>cd</code>, <code>ls</code> <em>what this really means if no arguments give, run with default argument</em></li>
+</ul>
+<p><strong>Some common default arguments</strong></p>
+<ul>
+<li><code>cd</code> by default always changes to <code>/home/john</code></li>
+<li><code>ls</code> by default always list content of the current directory</li>
+<li><code>bwa</code> by default runs a help menue</li>
+</ul>
+<p>Just to reiterate something that you have already understand - you always start at the prompt - then you tell the Shell what you want from it i.e which command to run - then tell command what to wrok with i.e which file or directory</p>
+<p>And the syntax always, always going to be command space argument. Doesn’t matter what command you are running there must a separator between command and it argument. Two possible senarios:</p>
+<ul>
+<li>no space between command and its argument - well shell will not recognise the command</li>
+<li>two spaces between command and its argument - shell will recognise the command, but command will see second space as its argument and might get confused</li>
+</ul>
+<p>Would it be cool to also tell any given command how to run..?</p>
+<p>e.g don’t just give me the files, but also give me the size and the date and who owns the files</p>
+<h3 id="actually-commands-considere-given-options-together-with-arguments">Actually commands considere given options together with arguments</h3>
+<p>So happens that the standard for giving options to any commnads is a “dash”:</p>
+<ul>
+<li><code>-h</code> dash h (one dash for short options)</li>
+<li><code>--help</code> dash dash help (two dashed for verbose options)</li>
+</ul>
+<p>both have exacttly the same effect. It is not a bad idea to write you options in verbose manner given that you are going to publish them later or look at yourself and should be very self explanotory.</p>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>Possible syntax for commands options</h2>
+</div>
+<div class="panel-body">
+<p>Not always you will both options i.e <code>-h</code> and <code>--help</code>. It is a good practice to have both and alot of tools support that. However sometime you will get one or another. It is possible to get none. e.g STAR</p>
+<p>Another point to note as we will see later some tools are really a collection of tools e.g BWA and SAMtools, hence the name. Therefore you call the tool e.g <code>samtools</code> then you would call subtool e.g <code>view</code> and then you would give options to a subtool, in this case <code>view</code>, because <code>view</code> is a subtool, there is no dashes in front. It isn’t an option. It is tool !</p>
+</div>
+</aside>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>Take home massage</h2>
+</div>
+<div class="panel-body">
+<ul>
+<li>You need a separator to separate each thing you type in</li>
+<li>The separator in the shell is <code>space</code></li>
+<li>There will always be a sapce:</li>
+<li>between command and its options</li>
+<li>between options and arguments</li>
+<li>between arguments themselvs</li>
+</ul>
+</div>
+</aside>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span>$ <span class="kw">ls</span></code></pre>
+<pre class="output"><code></code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span>$ <span class="kw">cd</span> /mnt/shared/RNAseq</code></pre>
+<pre class="output"><code>mapping  raw_data  ref_data</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span>$ <span class="kw">ls</span> -1</code></pre>
+<pre class="output"><code>mapping
+raw_data
+ref_data</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">/mnt/shared/RNAseq</span>$ <span class="kw">ls</span> -r</code></pre>
+<pre class="output"><code>ref_data raw_data mapping</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">/mnt/shared/RNAseq</span>$ <span class="kw">ls</span> -l</code></pre>
+<pre class="output"><code>total 12
+drwxrwxr-x 2 roxane roxane 4096 Jun 29 14:49 mapping
+drwxrwxr-x 2 roxane roxane 4096 Jun 29 11:44 raw_data
+drwxrwxr-x 2 roxane roxane 4096 Jun 29 11:45 ref_data</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span></code></pre>
+<pre class="output"><code>draft.txt</code></pre>
+<h3 id="bahs-commands">BAHS commands</h3>
+<p>I can’t see a point jsut giving you list of commands to use. There are so many different commands and tools out there and many more comes on the daily basis. Rather start using CLI and every time you want to do something think of a command and google for it. e.g I want to copy some files. “How to copy files in terminal linux” The key words are copy, terminal and linux. Always have terminal and/or linux and/or BASH in your search.</p>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Go and find new commands. Assignment-one</h2>
+</div>
+<div class="panel-body">
+<p>I made a file with a lsit of commands. The files are plain text files and you can view them in terminal Files under course name under relavant day 1. Go to relevant directory 2. Google how to view content of the file 3. more instructioin inside the file</p>
+</div>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Go and find more new commands. Assignment-two</h2>
+</div>
+<div class="panel-body">
+<p>There is another file with more commands inside the same directory It doesn’t look like a file. 1. Go to relevant directory 2. Use known commands to try to get content from each object in the directory 3. Once you find a relant file copy it to your home directory</p>
+</div>
+</section>
+<p>The key aspects from the assignment:</p>
+<ul>
+<li>move and copy commands can also rename files. How..?</li>
+</ul>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>Deleting Is Forever</h2>
+</div>
+<div class="panel-body">
+<p>The Unix shell doesn’t have a trash bin that we can recover deleted files from (though most graphical interfaces to Unix do). Instead, when we delete files, they are unhooked from the file system so that their storage space on disk can be recycled. Tools for finding and recovering deleted files do exist, but there’s no guarantee they’ll work in any particular situation, since the computer may recycle the file’s disk space right away.</p>
+</div>
+</aside>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span>$ <span class="kw">ls</span></code></pre>
+<pre class="output"><code>file-one.txt file-two.txt</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span>$ <span class="kw">cp</span> /mnt/shared/RNAseq/software-carpentry/day-one/.hidden-list-of-files.txt
+$ <span class="kw">ls</span></code></pre>
+<pre class="output"><code></code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span>$ <span class="kw">cp</span> .hidden-list-of-files.txt list-of-files.txt</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span>$ <span class="kw">rm</span> list-of-files.txt
+<span class="kw">~</span>$ <span class="kw">ls</span></code></pre>
+<pre class="output"><code></code></pre>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>With Great Power Comes Great Responsibility</h2>
+</div>
+<div class="panel-body">
+<p>Removing the files in a directory just so that we can remove the directory quickly becomes tedious. Instead, we can use <code>rm</code> with the <code>-r</code> flag (which stands for “recursive”):</p>
+<pre><code>$ rm -r thesis</code></pre>
+<p>This removes everything in the directory, then the directory itself. If the directory contains sub-directories, <code>rm -r</code> does the same thing to them, and so on. It’s very handy, but can do a lot of damage if used without care.</p>
+</div>
+</aside>
+<p>Let’s create that directory and file one more time. (Note that this time we’re running <code>nano</code> with the path <code>thesis/draft.txt</code>, rather than going into the <code>thesis</code> directory and running <code>nano</code> on <code>draft.txt</code> there.)</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span>$ <span class="kw">ls</span></code></pre>
+<pre class="output"><code></code></pre>
+<p>use arrow up to get previous cp commands <sub>~</sub> {.bash} ~$ mkdir first-dir <sub><sub><sub> </sub></sub></sub> {.bash} ~$ cd first-dir /first-dir$ ls /first-dir$ touch empty-file.txt /first-dir$ ls <sub><sub><sub> </sub></sub></sub> {.output} empty-file.txt <sub><sub><sub> </sub></sub></sub> {.bash} /first-dir$ cd .. ~$ ls <sub><sub><sub> </sub></sub></sub> {.output} first-dir <sub><sub><sub> </sub></sub></sub> {.bash} ~$ rm -r first-dir ~$ ls <sub><sub><sub> </sub></sub></sub> {.output}</p>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Renaming files</h2>
+</div>
+<div class="panel-body">
+<p>Suppose that you created a <code>.txt</code> file in your current directory to contain a list of the statistical tests you will need to do to analyze your data, and named it: <code>statstics.txt</code></p>
+<p>After creating and saving this file you realize you misspelled the filename! You want to correct the mistake, which of the following commands could you use to do so?</p>
+<ol style="list-style-type: decimal">
+<li><code>cp statstics.txt statistics.txt</code></li>
+<li><code>mv statstics.txt statistics.txt</code></li>
+<li><code>mv statstics.txt .</code></li>
+<li><code>cp statstics.txt .</code></li>
+</ol>
+</div>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Copy with Multiple Filenames</h2>
+</div>
+<div class="panel-body">
+<p>What does <code>cp</code> do when given several filenames and a directory name, as in:</p>
+<pre><code>$ mkdir backup
+$ cp thesis/citations.txt thesis/quotations.txt backup</code></pre>
+<p>What does <code>cp</code> do when given three or more filenames, as in:</p>
+<pre><code>$ ls -F
+intro.txt    methods.txt    survey.txt
+$ cp intro.txt methods.txt survey.txt</code></pre>
+</div>
+</section>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>Which Editor?</h2>
+</div>
+<div class="panel-body">
+<p>When we say, “<code>nano</code> is a text editor,” we really do mean “text”: it can only work with plain character data, not tables, images, or any other human-friendly media. We use it in examples because almost anyone can drive it anywhere without training, but please use something more powerful for real work. On Unix systems (such as Linux and Mac OS X), many programmers use <a href="http://www.gnu.org/software/emacs/">Emacs</a> or <a href="http://www.vim.org/">Vim</a> (both of which are completely unintuitive, even by Unix standards), or a graphical editor such as <a href="http://projects.gnome.org/gedit/">Gedit</a>. On Windows, you may wish to use <a href="http://notepad-plus-plus.org/">Notepad++</a>.</p>
+<p>No matter what editor you use, you will need to know where it searches for and saves files. If you start it from the shell, it will (probably) use your current working directory as its default location. If you use your computer’s start menu, it may want to save files in your desktop or documents directory instead. You can change this by navigating to another directory the first time you “Save As…”</p>
+</div>
+</aside>
+<p>Let’s type in a few lines of text, then use Control-O to write our data to disk:</p>
+<div class="figure">
+<img src="fig/nano-screenshot.png" alt="Nano in action" /><p class="caption">Nano in action</p>
+</div>
+<p>Once our file is saved, we can use Control-X to quit the editor and return to the shell. (Unix documentation often uses the shorthand <code>^A</code> to mean “control-A”.) <code>nano</code> doesn’t leave any output on the screen after it exits, but <code>ls</code> now shows that we have created a file called <code>draft.txt</code>:</p>
+        </div>
+      </div>
+      </article>
+      <div class="footer">
+        <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
+        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/shell-novice">Source</a>
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+  </body>
+</html>

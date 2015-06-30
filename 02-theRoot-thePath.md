@@ -1,8 +1,8 @@
 ---
 layout: page
 title: The Unix Shell
-subtitle: Files and Directories
-minutes: 30
+subtitle: The root and The path
+minutes: 25-30
 ---
 > ## Learning Objectives {.objectives}
 >
@@ -24,10 +24,10 @@ naturally start having dog like behaviour. That is open the door and straight to
 
 Lets start exploring from the start, from the ground floor up, from the roots of the tree from the __root__
 
-_remember our that we need to type commands in, execute them and read the reponce_
+_remember our  that we need to type commands in, execute them and read the reponce_
 
 ~~~ {.bash}
-$ cd /
+~$ cd /
 ~~~
 ~~~ {.output}
 /$
@@ -115,7 +115,7 @@ The leading `/` tells the computer to follow the path from the root of the file 
 so it always refers to exactly one directory, no matter where we are when we run the command.
 
 ~~~ {.bash}
-$ cd /mnt/shared/
+~$ cd /mnt/shared/
 ~~~
 I start at the root, nextt stop `mnt`, I don't want to stop at `mnt`, next stop at `shared`
 ~~~ {.bash}
@@ -135,13 +135,13 @@ are at.
 - `pwd` print working directory, which just tells you where you are at 
 
 ~~~ {.bash}
-$ pwd
+~$ pwd
 ~~~
 ~~~ {.output}
 /home/john
 ~~~
 ~~~ {.bash}
-$ cd /mnt 
+~$ cd /mnt 
 ~~~
 ~~~ {.output}
 lost+found shared
@@ -163,6 +163,15 @@ mapping  raw_data  ref_data
 - `..` is parent directory relative to where you are
 - `cd ..` is to go up a directory
 
+> ## Tilda {.callout}
+> The reason you never see `/home/john/` behiind your prompt, is because it is replaced by tilda.
+> Can you see the tilda behind your prompt now ..?
+
+> ## Dot and Dot Dot {.callout}
+> 
+> `.` is current directory. It means definatelly from this, current directory
+> e.g vim or ./vim will run two different programs
+
 ~~~ {.bash}
 $ pwd
 ~~~
@@ -176,49 +185,31 @@ $ pwd
 /home/
 ~~~
 
-### Appreciate the dot and dot dot
-
-- `.` is current directory. It means definatelly from this, current directory
-e.g vim or ./vim will run two different programs
-
-
-The special directory `..` doesn't usually show up when we run `ls`.
-If we want to display it, we can give `ls` the `-a` flag:
-
-> ## Relative path resolution {.challenge}
+> ## Get grasp of path {.challenge}
 >
-> If `pwd` displays `/Users/thing`, what will `ls ../backup` display?
+> 1. get current directory 
+> 2. go to the root
+> 3. go to the `/mnt/shared/`
+> 4. have a looks what there
+> 5. visualy locate this course directory
+> 6. go into the course directory 
+> 7. go into relevant day
+> 8. get your current directory
+> 9. Green sticky up if you got there safely
 >
-> 1.  `../backup: No such file or directory`
-> 2.  `2012-12-01 2013-01-08 2013-01-27`
-> 3.  `2012-12-01/ 2013-01-08/ 2013-01-27/`
-> 4.  `original pnas_final pnas_sub`
-
-> ## `ls` reading comprehension {.challenge}
+> ## Get grasp of full and relative paths {.challenge}
 >
-> If `pwd` displays `/Users/backup`,
-> and `-r` tells `ls` to display things in reverse order,
-> what command will display:
+> 1.  start from where you ended up from previous exercese
+> 2.  go `/mnt/shared/` using full path
+> 3.  look at the contetn
+> 4.  get you current working directory
+> 5.  go back to where you where using relative path
 >
-> ~~~
-> pnas-sub/ pnas-final/ original/
-> ~~~
+> ## Apreciate the dot and dot dot {.challenge}
 >
-> 1.  `ls pwd`
-> 2.  `ls -r -F`
-> 3.  `ls -r -F /Users/backup`
-> 4.  Either \#2 or \#3 above, but not \#1.
-
-> ## Default `cd` action {.challenge}
->
-> What does the command `cd` without a directory name do?
->
-> 1.  It has no effect.
-> 2.  It changes the working directory to `/`.
-> 3.  It changes the working directory to the user's home directory.
-> 4.  It produces an error message.
-
-> ## Exploring more `ls` arguments {.challenge}
->
-> What does the command `ls` do when used with the `-s` and `-h`
-> arguments
+> 1. stat from where you eneded up from precious exersice
+> 2. go up one directory 
+> 3. go up one more directory
+> 4. get your current directory
+> 5. go back, two directories deep
+> 6. go back, two directories up, in one go, using dots only 

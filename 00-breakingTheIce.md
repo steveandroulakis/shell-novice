@@ -2,7 +2,7 @@
 layout: page
 title: The Unix Shell
 subtitle: Breaking the ice
-minutes: 5
+minutes: 5-10
 ---
 > ## Learning Objectives {.objectives}
 >
@@ -90,7 +90,7 @@ level where you instruct computer using keyboard rather than point and click and
 I don't have time to:
 
 1. rich across to a mouse
-2. jerk a mouse a bit and simultaneously find search for a pointer on the screen
+2. jerk a mouse a bit and simultaneously search for a pointer on the screen
 3. navigate to firefox icon and double click on it
 
 This is too long...

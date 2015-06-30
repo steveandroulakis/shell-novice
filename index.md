@@ -42,10 +42,10 @@ These lessons will start you on a path towards using these resources effectively
 1.  [Breaking The Ice](00-breakingTheIce.html)
 2.  [CLI inroduction](01-cliIntro.html)
 3.  [The root and The path](02-theRoot-thePath.html)
-4.  [Pipes and Filters](03-pipefilter.html)
-5.  [Loops](04-loop.html)
-6.  [Shell Scripts](05-script.html)
-7.  [Finding Things](06-find.html)
+4.  [Create Things](03-create.html)
+5.  [BWA index and mapping](04-loop.html)
+6.  [SAMtools](04-loop.html)
+7.  [Automate with loops](04-loop.html)
 
 ## Other Resources
 
