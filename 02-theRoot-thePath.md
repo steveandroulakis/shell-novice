@@ -8,23 +8,21 @@ minutes: 25-30
 >
 > * First two commands and cat-dog behaviour
 > * Introduction to BASH
-> * Introduction to full path
-> * Explaining relative path and solidifying path concept
+> * Introduction to the full path
+> * Explaining relative path and solidifying the path concept
 > * How to navigate in shell
 
 Once you log in to your remote machine. The first time is always unfamiliar and confusing. I remember my first
-logins to new account on a new server I run `ls` and said 'There are no files here` that becaue this is YOUR
-new accoutn.. In this situation you really want to behave like a cat, who has been put in a new house.
-That is it will walk around sniffing everywhere, going to every conner with a grumpy face, hatting you
-and everyone around him. And so I want you to behave in exactly the same way. Look around the server explore
-every conner so to speak and find your place. Once you've become familiar with your new environment you will
+logins to new account on a new server. I ran `ls` and said 'There are no files here` that because this is YOUR fresh and new account.. In this situation you really want to behave like a cat, who has been put in a new house.
+That is it will likely walk around sniffing everywhere, exploring every corner with a grumpy face. And so I want you to behave in exactly the same way. Look around the server. Explore
+every corner, so to speak, and learn what places are yours. Once you've become familiar with your new environment you will
 naturally start having dog like behaviour. That is open the door and straight to the couch! 
 
 ### Change Directory and List content
 
-Lets start exploring from the start, from the ground floor up, from the roots of the tree from the __root__
+Lets start exploring from the start, from the ground floor up, from the roots of the tree... __root__
 
-_remember our  that we need to type commands in, execute them and read the reponce_
+_remember that we need to type commands in, execute them and read the response_
 
 ~~~ {.bash}
 ~$ cd /
@@ -40,7 +38,7 @@ bin  boot  dev  etc  home  initrd.img  initrd.img.old  lib  lib64  lost+found  m
 srv  sys  tmp  usr  var  vmlinuz  vmlinuz.old
 ~~~
 
-Here is the visual how it looks (upside down root tree, that's because we down under !)
+Here is the visually how it looks (an upside down root tree, because we're down under :) !)
 
 ![The File System](fig/filesystem.svg)
 
@@ -78,31 +76,29 @@ Note two things here:
    _Reflects the path_
 2. that no matter how deep in the directories you are, you can always type `cd /` and get to the root
 
-### Bourne Again SHell or BASH for short
+### Bourne Again Shell or BASH for short
 
 As at was mentioned previously `shell` is an intepreter. It is going to interpreate what we type for computer.
-However we do need to type in specific language and it will be `BASH`, because it sound rought. 
+However we do need to type in specific language and it will be `BASH`.. 
 
 - Havea you tried BASHing it..?
 - Just give it a good BASH
-- BASH quick anad dirty solution to everything
+- BASH quick and dirty solution to everything
 
-BASH as one specific language all Unix computers understand.
+BASH is one specific language almost all Unix computers understand.
 
-First two important aspects about CLI and BASH
+The first two important aspects to know about the CLI and BASH
 
-1. Tab expand - have your little finger on the tab key all the time sorf of thing
+1. Tab expand - pretty soon you'll have your little finger on the tab key all the time..
   * one tab autocompletes
   * two tabs gives you ambigious options
-2. Arrows key up - all commands stored in history. You can access them by scrolling through them one at a time
+2. Arrow keys up - all commands stored in history. You can access them by scrolling through them one at a time
 
 _Continue exploring but this time use tab expand_
 
-### Introduce full path
+### Introducing the 'full' path
 
-When you hike you park your car and hike up. It is imposibble for you to go pass a place and not to
-have in you path right..? This is fundamental idea about path. You don't have to stop and rest at every break
-point, but if you have passed on your way up it was in your path. This is very simple.
+The path is like hiking. You park your car, that's the `root` or top of your path. As you keep going down various connected paths, you can always reverse your actions and change course. The full path describes the steps you need to get from your car to the particular place you're standing. eg. `/carpark/naturetrail/waterfall`
 
 > ## Path {.callout}
 >
@@ -117,7 +113,7 @@ so it always refers to exactly one directory, no matter where we are when we run
 ~~~ {.bash}
 ~$ cd /mnt/shared/
 ~~~
-I start at the root, nextt stop `mnt`, I don't want to stop at `mnt`, next stop at `shared`
+I start at the root, next stop `mnt`, I don't want to stop at `mnt`, next stop at `shared`
 ~~~ {.bash}
 /mnt/shared$ ls
 ~~~
@@ -127,12 +123,12 @@ data RNAseq
 
 It doesn't matter where you are as long as you follow __full path__ you are not going to get lost
 
-### Why can I not start from where I left of..?
+### Why can I not start from where I left off..?
 
-Exactly ! You don't always have to start at the root and traverse down. You can start __path__ from where you
-are at.
+Exactly ! You don't always have to start at the root and traverse down. You can refer to other paths from where you
+are currently at.
 
-- `pwd` print working directory, which just tells you where you are at 
+- `pwd` print working directory, which just tells you where you are on the file system
 
 ~~~ {.bash}
 ~$ pwd
@@ -158,19 +154,38 @@ mapping  raw_data  ref_data
 
 ### Shell navigation in general
 
-- `~ == /home/john` tilda is a convinient short cut 
-- `.`  is current directory 
+- `~ == /home/john` tilde is a convinient short cut to your home directory (see below)
+- `.`  is your current directory 
 - `..` is parent directory relative to where you are
-- `cd ..` is to go up a directory
+- eg. `cd ..` is to go up a directory (to its parent)
 
-> ## Tilda {.callout}
-> The reason you never see `/home/john/` behiind your prompt, is because it is replaced by tilda.
-> Can you see the tilda behind your prompt now ..?
+### Your 'home' directory.
+
+While you may be able to look around the root (eg. '/') path on a system, you probably won't be able to modify any information at that level.
+
+This is because:
+ * The root contains many important parts that make your computer run properly
+ * These parts affect every user account on the computer and so its important to have them reliable for all
+ * If everyone could modify files from the root downwards, it would be relatively easy to accidentally break the system for all users, including yourself.
+
+Think of the system root as containing a car's engine area (under the bonnet, or hood). You should know what you're doing if you're messing about there, and what you do will affect all passengers of the car.
+
+Because of this, users on systems have _home directories_.  This may look like `/home/john` (eg. by default on many Linux systems) or `/Users/john` on Macs. The home directory is like a passenger seat of a car. You can put your seatbelt on. You can make your window go up or down. You can help yourself, but without adversely affecting anybody else.
+
+When you log into a system (by `ssh` or just opening a terminal on your computer, you start by default in your home directory).
+
+Home directories are parts of a system that only you should be able to create and modify data within. Your tools should output information into there, with the peace of mind that you have full control. You can even install tools here, just for yourself to use.
+
+A shortcut for _my home directory_ is the tilde character: `~`. For example, in the shell: `cd ~/` means 'take me to my home directory'. This becomes really useful as we go along.
+
+> ## Tilde {.callout}
+> The reason you never see `/home/john/` behiind your prompt, is because it is replaced by tilde.
+> Can you see the tilde behind your prompt now ..?
 
 > ## Dot and Dot Dot {.callout}
 > 
-> `.` is current directory. It means definatelly from this, current directory
-> e.g vim or ./vim will run two different programs
+> `.` is your current directory. It means 'from this, current directory'
+> e.g cat would run the program `cat` that reads the contents of your files, but `./cat` would try and run a program called `cat` living in the current directory you're in.
 
 ~~~ {.bash}
 $ pwd
@@ -185,31 +200,31 @@ $ pwd
 /home/
 ~~~
 
-> ## Get grasp of path {.challenge}
+> ## Get grasp of the path {.challenge}
 >
-> 1. get current directory 
+> 1. show your current directory name on-screen
 > 2. go to the root
-> 3. go to the `/mnt/shared/`
-> 4. have a looks what there
-> 5. visualy locate this course directory
-> 6. go into the course directory 
-> 7. go into relevant day
-> 8. get your current directory
-> 9. Green sticky up if you got there safely
+> 3. go to the `/mnt/shared/` directory
+> 4. have a look what's in there
+> 5. visually locate this course directory
+> 6. try and find the RNA Seq course's mapping directory
+> 7. Green sticky up if you got there safely
+
+
+> ## Get a grasp of full and relative paths {.challenge}
 >
-> ## Get grasp of full and relative paths {.challenge}
+> 1.  start from any path
+> 2.  go to `/mnt/shared/` using its full path name
+> 3.  look at the contents
+> 4.  show your current working directory (path)
+> 5.  go back to your home directory
+
+
+> ## Appreciate the dot and dot dot {.challenge}
 >
-> 1.  start from where you ended up from previous exercese
-> 2.  go `/mnt/shared/` using full path
-> 3.  look at the contetn
-> 4.  get you current working directory
-> 5.  go back to where you where using relative path
->
-> ## Apreciate the dot and dot dot {.challenge}
->
-> 1. stat from where you eneded up from precious exersice
+> 1. start in your home directory
 > 2. go up one directory 
 > 3. go up one more directory
-> 4. get your current directory
-> 5. go back, two directories deep
-> 6. go back, two directories up, in one go, using dots only 
+> 4. show your current working directory
+> 5. go back to your home directory
+> 6. go back two directories up, in one command.. using dots only 

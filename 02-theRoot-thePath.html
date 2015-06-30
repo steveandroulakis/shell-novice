@@ -36,22 +36,22 @@
 <ul>
 <li>First two commands and cat-dog behaviour</li>
 <li>Introduction to BASH</li>
-<li>Introduction to full path</li>
-<li>Explaining relative path and solidifying path concept</li>
+<li>Introduction to the full path</li>
+<li>Explaining relative path and solidifying the path concept</li>
 <li>How to navigate in shell</li>
 </ul>
 </div>
 </section>
-<p>Once you log in to your remote machine. The first time is always unfamiliar and confusing. I remember my first logins to new account on a new server I run <code>ls</code> and said ’There are no files here` that becaue this is YOUR new accoutn.. In this situation you really want to behave like a cat, who has been put in a new house. That is it will walk around sniffing everywhere, going to every conner with a grumpy face, hatting you and everyone around him. And so I want you to behave in exactly the same way. Look around the server explore every conner so to speak and find your place. Once you’ve become familiar with your new environment you will naturally start having dog like behaviour. That is open the door and straight to the couch!</p>
+<p>Once you log in to your remote machine. The first time is always unfamiliar and confusing. I remember my first logins to new account on a new server. I ran <code>ls</code> and said ’There are no files here` that because this is YOUR fresh and new account.. In this situation you really want to behave like a cat, who has been put in a new house. That is it will likely walk around sniffing everywhere, exploring every corner with a grumpy face. And so I want you to behave in exactly the same way. Look around the server. Explore every corner, so to speak, and learn what places are yours. Once you’ve become familiar with your new environment you will naturally start having dog like behaviour. That is open the door and straight to the couch!</p>
 <h3 id="change-directory-and-list-content">Change Directory and List content</h3>
-<p>Lets start exploring from the start, from the ground floor up, from the roots of the tree from the <strong>root</strong></p>
-<p><em>remember our that we need to type commands in, execute them and read the reponce</em></p>
+<p>Lets start exploring from the start, from the ground floor up, from the roots of the tree… <strong>root</strong></p>
+<p><em>remember that we need to type commands in, execute them and read the response</em></p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span>$ <span class="kw">cd</span> /</code></pre>
 <pre class="output"><code>/$</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">/</span>$ <span class="kw">ls</span></code></pre>
 <pre class="output"><code>bin  boot  dev  etc  home  initrd.img  initrd.img.old  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin
 srv  sys  tmp  usr  var  vmlinuz  vmlinuz.old</code></pre>
-<p>Here is the visual how it looks (upside down root tree, that’s because we down under !)</p>
+<p>Here is the visually how it looks (an upside down root tree, because we’re down under :) !)</p>
 <div class="figure">
 <img src="fig/filesystem.svg" alt="The File System" /><p class="caption">The File System</p>
 </div>
@@ -68,28 +68,28 @@ srv  sys  tmp  usr  var  vmlinuz  vmlinuz.old</code></pre>
 <li>how text increases and decreases on the left hand side as you move around <em>Reflects the path</em></li>
 <li>that no matter how deep in the directories you are, you can always type <code>cd /</code> and get to the root</li>
 </ol>
-<h3 id="bourne-again-shell-or-bash-for-short">Bourne Again SHell or BASH for short</h3>
-<p>As at was mentioned previously <code>shell</code> is an intepreter. It is going to interpreate what we type for computer. However we do need to type in specific language and it will be <code>BASH</code>, because it sound rought.</p>
+<h3 id="bourne-again-shell-or-bash-for-short">Bourne Again Shell or BASH for short</h3>
+<p>As at was mentioned previously <code>shell</code> is an intepreter. It is going to interpreate what we type for computer. However we do need to type in specific language and it will be <code>BASH</code>..</p>
 <ul>
 <li>Havea you tried BASHing it..?</li>
 <li>Just give it a good BASH</li>
-<li>BASH quick anad dirty solution to everything</li>
+<li>BASH quick and dirty solution to everything</li>
 </ul>
-<p>BASH as one specific language all Unix computers understand.</p>
-<p>First two important aspects about CLI and BASH</p>
+<p>BASH is one specific language almost all Unix computers understand.</p>
+<p>The first two important aspects to know about the CLI and BASH</p>
 <ol style="list-style-type: decimal">
-<li>Tab expand - have your little finger on the tab key all the time sorf of thing</li>
+<li>Tab expand - pretty soon you’ll have your little finger on the tab key all the time..</li>
 </ol>
 <ul>
 <li>one tab autocompletes</li>
 <li>two tabs gives you ambigious options</li>
 </ul>
 <ol start="2" style="list-style-type: decimal">
-<li>Arrows key up - all commands stored in history. You can access them by scrolling through them one at a time</li>
+<li>Arrow keys up - all commands stored in history. You can access them by scrolling through them one at a time</li>
 </ol>
 <p><em>Continue exploring but this time use tab expand</em></p>
-<h3 id="introduce-full-path">Introduce full path</h3>
-<p>When you hike you park your car and hike up. It is imposibble for you to go pass a place and not to have in you path right..? This is fundamental idea about path. You don’t have to stop and rest at every break point, but if you have passed on your way up it was in your path. This is very simple.</p>
+<h3 id="introducing-the-full-path">Introducing the ‘full’ path</h3>
+<p>The path is like hiking. You park your car, that’s the <code>root</code> or top of your path. As you keep going down various connected paths, you can always reverse your actions and change course. The full path describes the steps you need to get from your car to the particular place you’re standing. eg. <code>/carpark/naturetrail/waterfall</code></p>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-pushpin"></span>Path</h2>
@@ -100,12 +100,12 @@ srv  sys  tmp  usr  var  vmlinuz  vmlinuz.old</code></pre>
 </aside>
 <p>The leading <code>/</code> tells the computer to follow the path from the root of the file system, so it always refers to exactly one directory, no matter where we are when we run the command.</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span>$ <span class="kw">cd</span> /mnt/shared/</code></pre>
-<p>I start at the root, nextt stop <code>mnt</code>, I don’t want to stop at <code>mnt</code>, next stop at <code>shared</code> <sub>~</sub> {.bash} /mnt/shared$ ls <sub><sub><sub> </sub></sub></sub> {.output} data RNAseq <sub>~</sub></p>
+<p>I start at the root, next stop <code>mnt</code>, I don’t want to stop at <code>mnt</code>, next stop at <code>shared</code> <sub>~</sub> {.bash} /mnt/shared$ ls <sub><sub><sub> </sub></sub></sub> {.output} data RNAseq <sub>~</sub></p>
 <p>It doesn’t matter where you are as long as you follow <strong>full path</strong> you are not going to get lost</p>
-<h3 id="why-can-i-not-start-from-where-i-left-of..">Why can I not start from where I left of..?</h3>
-<p>Exactly ! You don’t always have to start at the root and traverse down. You can start <strong>path</strong> from where you are at.</p>
+<h3 id="why-can-i-not-start-from-where-i-left-off..">Why can I not start from where I left off..?</h3>
+<p>Exactly ! You don’t always have to start at the root and traverse down. You can refer to other paths from where you are currently at.</p>
 <ul>
-<li><code>pwd</code> print working directory, which just tells you where you are at</li>
+<li><code>pwd</code> print working directory, which just tells you where you are on the file system</li>
 </ul>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span>$ <span class="kw">pwd</span></code></pre>
 <pre class="output"><code>/home/john</code></pre>
@@ -116,17 +116,25 @@ srv  sys  tmp  usr  var  vmlinuz  vmlinuz.old</code></pre>
 <pre class="output"><code>mapping  raw_data  ref_data</code></pre>
 <h3 id="shell-navigation-in-general">Shell navigation in general</h3>
 <ul>
-<li><code>~ == /home/john</code> tilda is a convinient short cut</li>
-<li><code>.</code> is current directory</li>
+<li><code>~ == /home/john</code> tilde is a convinient short cut to your home directory (see below)</li>
+<li><code>.</code> is your current directory</li>
 <li><code>..</code> is parent directory relative to where you are</li>
-<li><code>cd ..</code> is to go up a directory</li>
+<li>eg. <code>cd ..</code> is to go up a directory (to its parent)</li>
 </ul>
+<h3 id="your-home-directory.">Your ‘home’ directory.</h3>
+<p>While you may be able to look around the root (eg. ‘/’) path on a system, you probably won’t be able to modify any information at that level.</p>
+<p>This is because: * The root contains many important parts that make your computer run properly * These parts affect every user account on the computer and so its important to have them reliable for all * If everyone could modify files from the root downwards, it would be relatively easy to accidentally break the system for all users, including yourself.</p>
+<p>Think of the system root as containing a car’s engine area (under the bonnet, or hood). You should know what you’re doing if you’re messing about there, and what you do will affect all passengers of the car.</p>
+<p>Because of this, users on systems have <em>home directories</em>. This may look like <code>/home/john</code> (eg. by default on many Linux systems) or <code>/Users/john</code> on Macs. The home directory is like a passenger seat of a car. You can put your seatbelt on. You can make your window go up or down. You can help yourself, but without adversely affecting anybody else.</p>
+<p>When you log into a system (by <code>ssh</code> or just opening a terminal on your computer, you start by default in your home directory).</p>
+<p>Home directories are parts of a system that only you should be able to create and modify data within. Your tools should output information into there, with the peace of mind that you have full control. You can even install tools here, just for yourself to use.</p>
+<p>A shortcut for <em>my home directory</em> is the tilde character: <code>~</code>. For example, in the shell: <code>cd ~/</code> means ‘take me to my home directory’. This becomes really useful as we go along.</p>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pushpin"></span>Tilda</h2>
+<h2><span class="glyphicon glyphicon-pushpin"></span>Tilde</h2>
 </div>
 <div class="panel-body">
-<p>The reason you never see <code>/home/john/</code> behiind your prompt, is because it is replaced by tilda. Can you see the tilda behind your prompt now ..?</p>
+<p>The reason you never see <code>/home/john/</code> behiind your prompt, is because it is replaced by tilde. Can you see the tilde behind your prompt now ..?</p>
 </div>
 </aside>
 <aside class="callout panel panel-info">
@@ -134,7 +142,7 @@ srv  sys  tmp  usr  var  vmlinuz  vmlinuz.old</code></pre>
 <h2><span class="glyphicon glyphicon-pushpin"></span>Dot and Dot Dot</h2>
 </div>
 <div class="panel-body">
-<p><code>.</code> is current directory. It means definatelly from this, current directory e.g vim or ./vim will run two different programs</p>
+<p><code>.</code> is your current directory. It means ‘from this, current directory’ e.g cat would run the program <code>cat</code> that reads the contents of your files, but <code>./cat</code> would try and run a program called <code>cat</code> living in the current directory you’re in.</p>
 </div>
 </aside>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">pwd</span></code></pre>
@@ -143,36 +151,46 @@ srv  sys  tmp  usr  var  vmlinuz  vmlinuz.old</code></pre>
 <pre class="output"><code>/home/</code></pre>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Get grasp of path</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Get grasp of the path</h2>
 </div>
 <div class="panel-body">
 <ol style="list-style-type: decimal">
-<li>get current directory</li>
+<li>show your current directory name on-screen</li>
 <li>go to the root</li>
-<li>go to the <code>/mnt/shared/</code></li>
-<li>have a looks what there</li>
-<li>visualy locate this course directory</li>
-<li>go into the course directory</li>
-<li>go into relevant day</li>
-<li>get your current directory</li>
+<li>go to the <code>/mnt/shared/</code> directory</li>
+<li>have a look what’s in there</li>
+<li>visually locate this course directory</li>
+<li>try and find the RNA Seq course’s mapping directory</li>
 <li>Green sticky up if you got there safely</li>
 </ol>
-<h2>Get grasp of full and relative paths</h2>
+</div>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Get a grasp of full and relative paths</h2>
+</div>
+<div class="panel-body">
 <ol style="list-style-type: decimal">
-<li>start from where you ended up from previous exercese</li>
-<li>go <code>/mnt/shared/</code> using full path</li>
-<li>look at the contetn</li>
-<li>get you current working directory</li>
-<li>go back to where you where using relative path</li>
+<li>start from any path</li>
+<li>go to <code>/mnt/shared/</code> using its full path name</li>
+<li>look at the contents</li>
+<li>show your current working directory (path)</li>
+<li>go back to your home directory</li>
 </ol>
-<h2>Apreciate the dot and dot dot</h2>
+</div>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Appreciate the dot and dot dot</h2>
+</div>
+<div class="panel-body">
 <ol style="list-style-type: decimal">
-<li>stat from where you eneded up from precious exersice</li>
+<li>start in your home directory</li>
 <li>go up one directory</li>
 <li>go up one more directory</li>
-<li>get your current directory</li>
-<li>go back, two directories deep</li>
-<li>go back, two directories up, in one go, using dots only</li>
+<li>show your current working directory</li>
+<li>go back to your home directory</li>
+<li>go back two directories up, in one command.. using dots only</li>
 </ol>
 </div>
 </section>
