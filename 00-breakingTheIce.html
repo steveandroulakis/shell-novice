@@ -35,67 +35,63 @@
 <div class="panel-body">
 <ul>
 <li>Introduce common biological files</li>
-<li>Introduce overall theme for this two days workshop</li>
-<li>Focus on RNA-seq pipeline</li>
-<li>Present keyboard as your friend</li>
+<li>Introduce the overall theme for this two days workshop</li>
+<li>Focus on an RNA-seq pipeline</li>
+<li>Present the keyboard as your friend</li>
 </ul>
 </div>
 </section>
 <h3 id="most-common-biological-files">Most common biological files:</h3>
 <ul>
-<li>FASTQ “raw data” your sequenced reads with quality information per base</li>
-<li>FASTA can hold any sequence information where each new sequence seprated by “&gt;” sign</li>
-<li>SAM/BAM “Sequence Alignment Map” and B for binary. SAM holds alot of information including</li>
+<li>FASTQ: “raw data” your sequenced reads with quality information per base</li>
+<li>FASTA: can hold any sequence information where each new sequence is separated by “&gt;” sign</li>
+<li>SAM/BAM: “Sequence Alignment Map” and B for binary (BAMs are compressed versions of SAMs). SAM holds alot of information including</li>
 <li>mapped reads coordinats</li>
 <li>also holds quality information per base</li>
-<li>information about sequence mismatch</li>
+<li>information about sequence mismatches</li>
 <li>custom encoded information e.g poly(A) tail length information</li>
-<li>GTF/GFF annotation files</li>
+<li>GTF/GFF: annotation files</li>
 </ul>
 <h3 id="two-steps-bioinformatics">Two steps bioinformatics:</h3>
 <ol style="list-style-type: decimal">
 <li><p><strong>Getting the data</strong> and getting the data into the right format (can be troublesome and time consuming) - we need BASH (CLI) skills to get the data and to do primary filtering on the data</p></li>
-<li><p><strong>Analyse the data</strong> (obviously can be much more time consuming (don’t undervalue step one though!) - this where we need R language to get the answers from our digital-raw data</p></li>
+<li><p><strong>Analysing the data</strong> (obviously can be much more time consuming (don’t undervalue step one though!) - this where we need R language to get the answers from our digital-raw data</p></li>
 </ol>
-<p>For example you most certainly can grab your BAM files from else where and start you anaylisis from that point onward and in most cases this should be fine, particular when you are doing some what standard RNA-seq on mouse for differentical gene expression. However if you are doing some a bit more out of ordinary or novel than getting the data can be tricky to get. Running default parametrs isn’t good any more.</p>
-<h3 id="common-rna-seq-pipeline-workflow-from-fastq-to-bam-and-beyond">Common RNA-seq pipeline workflow (from FASTQ to BAM and beyond)</h3>
+<p>For example you can most certainly grab your BAM files from elsewhere and start your analysis from that point onward.. in most cases this should be fine, particularly when you are doing something fairly standard eg. RNA-seq on mouse for differential gene expression. However if you are doing something a bit more out of the ordinary or novel then working with data can be tricky. Running tools with default parameters isn’t so good any more.</p>
+<h3 id="the-common-rna-seq-pipeline-workflow-from-fastq-to-bam-and-beyond">The common RNA-seq pipeline workflow (from FASTQ to BAM and beyond)</h3>
 <ol style="list-style-type: decimal">
 <li>Get your FASTQ files - download ..?</li>
-</ol>
-<ul>
 <li>Clip your FASTQ files - quality and adapter clipping (sometimes)</li>
-</ul>
-<ol start="2" style="list-style-type: decimal">
 <li>Get your BAM files - Align your FASTQ files to the reference genome</li>
-<li>Get your count - Count how many reads fallen onto the gene feature</li>
+<li>Get your counts - Count how many reads fallen onto the gene feature</li>
 </ol>
-<p><strong>Associate tools:</strong></p>
+<p><strong>Common tools:</strong></p>
 <ul>
 <li><code>BWA</code> set of tools used for FASTQ alignment</li>
-<li><code>bwa index</code> index your reference genome - must do !</li>
-<li><code>bwa mem</code> running actuall alignment and generating SAM file</li>
+<li><code>bwa index</code> index your reference genome - (must do!)</li>
+<li><code>bwa mem</code> running the actual alignment and generating a SAM file</li>
 <li><code>SAMtools</code> set of tools for SAM/BAM files manipulation</li>
-<li><code>samtools view</code> to view the files different options below
+<li><code>samtools view</code> to view the files with different options:
 <ul>
 <li><code>-h</code></li>
 <li><code>-c</code></li>
 <li><code>-f 4</code></li>
 <li><code>-Sb</code></li>
 </ul></li>
-<li><code>samtools sort</code> sort the file either by coordinats or by chromosome name</li>
+<li><code>samtools sort</code> sort the file either by coordinates or by chromosome name</li>
 <li><code>samtools index</code></li>
 <li><code>featureCount</code> tool for counting how many reads have mapped onto the gene</li>
-<li><code>nesoni</code> set of tools used that I want go into</li>
-<li><code>clip</code> use nesoni clip to clip low quality and adapters. It has a list of many common adapters</li>
+<li><code>nesoni</code> set of tools (I’ll cover this later)</li>
+<li><code>clip</code> use nesoni clip to clip low quality and adapters. It has support for many common adapters</li>
 </ul>
-<h3 id="keyboard-is-intrinsicly-faster-than-a-mouse">Keyboard is intrinsicly faster than a mouse</h3>
-<p>It is given that keyboard is faster at doing the same thing you would with a mouse e.g:</p>
+<h3 id="a-keyboard-is-intrinsically-faster-than-a-mouse">A keyboard is intrinsically faster than a mouse</h3>
+<p>It is given that keyboard is faster at doing common tasks you could do with a mouse e.g:</p>
 <ul>
-<li>searching for a browser and launching it</li>
-<li>ctrl^l - highlights URL</li>
+<li>In a browser..</li>
+<li>ctrl^l - highlights the URL</li>
 <li>ctrl^k - places cursor in the search bar</li>
-<li><p>alt^ (arros left of right) - to move to the previous or next pages</p></li>
-<li>copy and paste</li>
+<li><p>alt^ (arrows left or right) - page history back/forward</p></li>
+<li>Common programs (for Mac, replace <code>ctrl</code> with <code>command</code>)</li>
 <li><code>ctrl^c</code> copy</li>
 <li><code>ctrl^v</code> paste</li>
 <li><code>ctrl^s</code> save</li>
@@ -109,14 +105,13 @@
 <li><code>ctrl^n</code> open new window</li>
 <li><p><code>ctrl^f</code> find</p></li>
 </ul>
-<p>These commands are inbuild in us. <code>if not</code> they are your biggest time saver while working on computer. <em>I am not a faster worker. I am efficient worker. I just know and love my shortcuts</em>. All I want from you is to appreciate that keyboard enables you to operate computer at the different level, level where you instruct computer using keyboard rather than point and click and the pay off is <strong>time</strong>.</p>
-<p>I don’t have time to:</p>
+<p>These commands are second nature to anyone great with computers. <em>Otherwise</em> they are set to become your biggest time saver while working on computer. <em>I am not a faster worker. I am an efficient worker. I just know and love my shortcuts</em>. Appreciate that the keyboard enables you to operate computer at a different level: one where you instruct the computer using a keyboard rather than point and click and the payoff is <strong>time saved</strong>.</p>
+<p>When working, I don’t have time to:</p>
 <ol style="list-style-type: decimal">
-<li>rich across to a mouse</li>
-<li>jerk a mouse a bit and simultaneously search for a pointer on the screen</li>
-<li>navigate to firefox icon and double click on it</li>
+<li>Reaching for the mouse</li>
+<li>Finding the mouse on the screen</li>
+<li>Navigating to the right button or icon to click on it</li>
 </ol>
-<p>This is too long…</p>
 <p>This brings me to the next point</p>
 <p><em>Useful resources</em></p>
 <p>Web browser keyboard shortcuts</p>

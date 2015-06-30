@@ -34,15 +34,15 @@
 </div>
 <div class="panel-body">
 <ul>
-<li>Introduce Command-line Interface</li>
-<li>Introduce the lingo</li>
-<li>Execute first command <code>ssh</code></li>
-<li>Present CLI as an alternative to GUI</li>
+<li>Introduce the Command-line Interface</li>
+<li>Introduce some lingo</li>
+<li>Execute our first command <code>ssh</code></li>
+<li>Present the CLI as an alternative to GUI</li>
 </ul>
 </div>
 </section>
-<h3 id="command-line-interface-or-cli-for-short">Command-line interface or CLI for short</h3>
-<p>We saw in previous section that you can operate an application such as web browser or MS office suites through simply pressing combination of keyboard keys. This is cool and great time saver.</p>
+<h3 id="command-line-interface-or-cli-for-short">Command-line interface (or CLI for short)</h3>
+<p>We saw in the previous section that you can operate an application such as web browser or MS office suites through simply pressing a combination of keyboard keys. This is cool and a great time saver.</p>
 <p>Let me solidify why we want to use keyboard keys instead of mouse:</p>
 <ol style="list-style-type: decimal">
 <li>Speed and therefore time</li>
@@ -51,55 +51,57 @@
 <li>hands always on the <strong>keyboard</strong></li>
 <li>no need to look <strong>just do it</strong></li>
 </ul>
-<p>Now lets utilise keyboard system wide.</p>
-<p>CLI is this interactive and responsive thing, where you will need to type things in and you will get your response printed on the screen. The technical term for this is <strong>read-evaluate-print loop</strong>, where user needs:</p>
+<p>Now lets utilise our keyboard system wide.</p>
+<p>The Command Line Interface (CLI) is an interactive and responsive thing. You will need to type words in and you will get your response printed on the screen in response. The technical term for this is the <strong>read-evaluate-print loop</strong>, wherein a user:</p>
 <ol style="list-style-type: decimal">
-<li><strong>type a command</strong></li>
-<li>then press enter (return) key</li>
+<li><strong>types a command</strong></li>
+<li>presses enter (return) key</li>
 <li>computer will read the command</li>
-<li><strong>execute the command</strong></li>
-<li>show the <strong>output on the screen</strong></li>
+<li><strong>computer executes the command</strong></li>
+<li><strong>output is shown on-screen</strong></li>
 </ol>
 <p>The key to the Command-Line Interface:</p>
 <ul>
 <li>you will have to type</li>
-<li>in specific language - BASH</li>
-<li>read your answers of the screen</li>
+<li>the command line comes in different languages. ours is: <code>BASH</code></li>
+<li>carefully read the output on the screen</li>
 </ul>
-<h3 id="cli-is-full-of-lingo-just-learn-it">CLI is full of lingo, just learn it</h3>
+<h3 id="cli-is-full-of-lingo..-learn-it">CLI is full of lingo.. learn it!</h3>
 <ul>
-<li>folder == <strong>directory</strong> AND directory == folder</li>
+<li><p>folder == <strong>directory</strong> AND directory == folder</p></li>
 <li><strong>CLI</strong> == terminal == SHELL (not exactly, but for us it is)</li>
-<li>It is a generic name describing an interface</li>
-<li>Terminal comes from old days when the only way to access computer was through physical terminal. Actually correct language is terminal emulator, but gets shorten to terminal!</li>
-<li>SHELL is an interpreter that conveys specific language that you type (BASH) to something that computer can understand.</li>
-<li>can’t click on anything in the terminal. Forget about mouse, can only navigate using <strong>keyboard</strong></li>
-<li><code>$</code> this sign means <strong>prompt</strong> - “a message or symbol on a screen to show that the system is waiting user’s input”</li>
+<li>Terminal is a generic name describing an interface</li>
+<li>Terminal comes from the old days when the only way to access a computer was through physical terminal. <em>Actually.. the correct language is terminal emulator, but it gets shortened to terminal!</em></li>
+<li>SHELL is an interpreter that conveys specific language that you type (eg. BASH language) to something that your computer can understand.</li>
+<li>You can’t click on anything in the terminal. Forget about the mouse, you can only navigate using your <strong>keyboard</strong></li>
+<li><code>$</code>. This sign means <strong>prompt</strong> - “a message or symbol on a screen to show that the system is awaiting user’s input”</li>
 <li><strong>Execute</strong> == pressing Enter on the keyboard</li>
 <li>all commands are <strong>executed at the prompt</strong></li>
 <li>launch == open == <strong>start</strong> == double click</li>
-<li>server == just another computer much like you laptop, which can also server some files or other content</li>
+<li><p>server == just another computer much like your laptop. Others can access it remotely, sometimes through the <strong>CLI</strong>, often through a web browser.</p></li>
 </ul>
-<h3 id="let-us-execute-our-first-command-ssh">Let us execute our first command <code>ssh</code></h3>
-<p>Execute <code>ssh john@crunch.erc.monash.edu</code> insert your login name</p>
+<h3 id="let-us-execute-our-first-command-ssh">Let us execute our first command: <code>ssh</code></h3>
+<p>Execute <code>ssh john@crunch.erc.monash.edu</code> replace john with your login name. <em>See an instructor for your details</em>.</p>
 <p><em>In this case <code>Serverauditor</code> is our terminal emulator and this will be our CLI</em></p>
-<p>To explain what just happened. <code>crunch.erc.monash.edu</code> is computer with fancy name. The name could have been anything. You don’t even need to have a name. The name is an abstraction for an numeric IP address. In plain English command means log john to crunch machine, very simple. Three parts to it:</p>
+<p>To explain what just happened. <code>crunch.erc.monash.edu</code> is computer on the internet with a fancy name. The name could have been anything. You don’t even need to have a name. The name is an abstraction for an numeric IP address eg. 192.168.1.11.</p>
+<p>In plain English, this <code>ssh</code> command means “log john in to the crunch machine”. Very simple. Three parts to it:</p>
 <ul>
 <li>log me in <code>ssh</code></li>
 <li>who you are <code>john</code></li>
-<li>where you want to be <code>crunch.erc.monash.edu</code></li>
+<li>where you want to be <code>crunch.erc.monash.edu</code> (this server happens to run in one of Monash’s data centres)</li>
 </ul>
-<p>And now we are on the remote machine else where and who really know where… You can <code>ssh</code> to any computer you want (provided some settings)</p>
-<p>I’m not clear why should I use <code>ssh</code> ..?</p>
+<p>Now we are on the remote machine..</p>
+<h3 id="why-use-ssh">Why use ssh?</h3>
+<p>You can <code>ssh</code> to most computers in the world (provided they’re not Windows!). For example, the vast majority of web sites in the world run the Linux operating system and therefore have ssh support.. not that Google.com want you to try and remotely control their servers and delete all their files :)</p>
+<p>You use <code>ssh</code> because the computer you’re connected to has advantages..</p>
 <ul>
-<li>to log in to another computer</li>
-<li>because it has many more CPU’s and RAM (memory)</li>
-<li>because you can leave it running over night, days, weeks, you don’t ever shut it down</li>
-<li>because it has all the tools installed</li>
-<li>because your data might comes straight to that server</li>
+<li>it often has many more CPU’s and RAM (memory)</li>
+<li>you can often leave it running over night, days, weeks, you don’t ever shut it down.. it just sits there processing</li>
+<li>it has all the tools you need installed, saving you doing it yourself</li>
+<li>because your data might live right next to the server, so you don’t need to download it on your terrible home connection</li>
+<li>because it might be networked on the web, meaning you can run web sites and host downloadable files off it for others (eg. host results of your experiments!)</li>
 </ul>
-<p>But really you can run your tools on your local machine a.k.a your laptop if you want.</p>
-<p>This brings me back to this same, important point why CLI and so I would like to re-solidify it again</p>
+<p>You can still run these tools on your local machine, within reason, but it’s often much easier to work elsewhere.</p>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-pushpin"></span>How to copy and paste - terminal</h2>
@@ -111,25 +113,26 @@
 </ul>
 </div>
 </aside>
-<h3 id="cli-is-just-an-interface-to-operate-a-hardware-bunch-a.k.a-computer">CLI is just an interface to operate a hardware bunch a.k.a computer</h3>
-<p>This isn’t much different from GUI where you don’t have to type anything in as such, but you still need to read off the screen, accept it is more appealing visually or some might thing so. To me it’s just an extra layer of distraction.</p>
-<p>GUI may appear intuitive to some or most of users, however I would argue the opposite CLI is much easier and much more intuitive once one has developed appreciation for CLI. Of course these days it is rather hard to avoid GUI. Drawing and graphical editing is certainly best done with the mouse, but we are not in that kind of industry. I believe majority of bio-analysis is done using keyboard rather than mouse. More importantly majority of bio-analysis should be done using keyboard rather than mouse.</p>
+<p>Mac users using the in-built Terminal app use <code>command^c</code> and <code>command^v</code> instead.</p>
+<h3 id="cli-is-just-a-very-powerful-interface-for-operating-your-computer">CLI is just a very powerful interface for operating your computer</h3>
+<p>This isn’t much different from GUI where you don’t have to type anything in as such, but you still need to read your results off the screen.</p>
+<p>A GUI may appear intuitive on the surface, but pretty quickly a CLI starts to feel familiar. It has all the advantages of providing you with far more control than a GUI and no need to learn a new interface. Of course these days it is rather hard to avoid GUI. Drawing and graphical editing is certainly best done with the mouse, but we are not in that kind of industry. I believe majority of bio-analysis is done using keyboard rather than mouse. More importantly majority of bio-analysis could and perhaps should be done using keyboard rather than mouse.</p>
 <p>Why CLI..?</p>
 <p><strong>convincing</strong></p>
 <ul>
-<li>faster to type then point and click</li>
+<li>faster to type than point and click</li>
 <li>easy to write and publish your methods sections</li>
 <li>reproducible, commands either work or don’t - no two ways about it</li>
-<li>easy to communicate commands appose to explaining which drop down menu</li>
+<li>easy to communicate commands as opposed to explaining which drop down menu to find the specific function</li>
 </ul>
-<p><strong>no so much</strong></p>
+<p><strong>‘why not’ the command line?</strong></p>
 <ul>
 <li>can automate and run multiple jobs at once <em>I don’t care</em></li>
 <li>access to high performance computers and clusters <em>I still don’t care</em></li>
 <li>a lot of tools don’t have graphical interface <em>Well too bad, they should !</em></li>
 </ul>
-<p>Speaking frankly nothing is stopping you from using GUI and please do, because that will make me always look much more efficient just because I am too lazy not to be lazy and press keyboard keys.</p>
-<p>Lets leap into CLI..</p>
+<p>Nothing can stop you from using a Graphical User Interface, but once you learn the Command Line, you will have an indispensible tool and power at your disposal for decades to come.</p>
+<p>Lets leap into it..!</p>
         </div>
       </div>
       </article>

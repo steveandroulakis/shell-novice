@@ -6,70 +6,62 @@ minutes: 25-30
 ---
 > ## Learning Objectives {.objectives}
 >
-> * Explain general syntax of the shell
-> * Explain commands options and arguments
-> * Just commands
+> * Explain the general syntax of the shell
+> * Explain command options and arguments
+> * Run commands!
 
 ### Shell reads commands. Commands read arguments
 
-The way CLI works is that you tell it what needs to be done i.e here is command execute it. And it will do
-exactly that. But command itself demands more information i.e what do you want me to work with ..? 
+The way the CLI works is that you tell it what needs to be done i.e "here is command, now execute it". It will do
+exactly that. However, sometimes you need to tell it extra information such as the data you want it to operate on. These are _arguments_, also known as _parameters_. There are also _options_.
 
-- some programs can only run by themselvs e.g `date`, `cal` 
-- some programs can only run with give arguments e.g `mv`, `cp`
+- some programs can only run by themselves e.g `date`, `cal` 
+- some programs can only run with given arguments e.g `mv`, `cp`
 - other programs can run either way, with or without parameters e.g `cd`, `ls`
-_what this really means if no arguments give, run with default argument_
+_if you give no arguments, commands assume certain defaults_
 
 __Some common default arguments__
 
-- `cd` by default always changes to `/home/john`
-- `ls` by default always list content of the current directory
+- `cd` by default always changes to your home directory eg. `/home/john`
+- `ls` by default always lists the contents of the current directory
 - `bwa` by default runs a help menue
 
-Just to reiterate something that you have already understand 
-- you always start at the prompt
-- then you tell the Shell what you want from it i.e which command to run
-- then tell command what to wrok with i.e which file or directory
+The syntax is always the same. `command and arguments`. eg `tail -f /my/file`.
 
-And the syntax always, always going to be command space argument. Doesn't matter what command you are running
-there must a separator between command and it argument. Two possible senarios:
+- Always remember to put spaces between your commands and each argument.
+- More than one space is often okay, though not always!
 
-- no space between command and its argument - well shell will not recognise the command
-- two spaces between command and its argument - shell will recognise the command, but command will see second 
-space as its argument and might get confused
+### Commands and options
 
-Would it be cool to also tell any given command how to run..?
+There are also _options_. These always start with a dash and can have their own arguments. Above I typed `tail -f /my/file` which means "show me the bottom lines of a file (tail) with the file (-f) /my/file (the argument)".
 
-e.g don't just give me the files, but also give me the size and the date and who owns the files
+Why might I do this?
 
-### Actually commands considere given options together with arguments
-
-So happens that the standard for giving options to any commnads is a "dash":
-
+A very common option for many programs..
 - `-h` dash h  (one dash for short options)
 - `--help` dash dash help (two dashed for verbose options)
 
-both have exacttly the same effect. It is not a bad idea to write you options in verbose manner given that
-you are going to publish them later or look at yourself and should be very self explanotory.
+Both have exacttly the same effect. It is not a bad idea to write your options in verbose manner given that
+you are going to publish them later or look at it again yourself. You don't want to be guessing what -x or -o means in a particular program, for example.
 
-> ## Possible syntax for commands options {.callout}
+> ## More about options {.callout}
 > 
-> Not always you will both options i.e `-h` and `--help`. It is a good practice to have both and alot of
-> tools support that. However sometime you will get one or another. It is possible to get none. e.g STAR
-> 
-> Another point to note as we will see later some tools are really a collection of tools e.g BWA and SAMtools,
-> hence the name. Therefore you call the tool e.g `samtools` then you would call subtool e.g `view` and
+> It's important to note that some programs don't give you a single dash and double dash option like `-h` and `--help`. It's good practice to, but bioinformatic tools (and scientific software in general) is famed for not conforming to rules!
+> Another point to note: Some tools are really a collection of tools e.g BWA and SAMtools, hence the name. Therefore you call the tool e.g `samtools` then you would call subtool e.g `view` and
 > then you would give options to a subtool, in this case `view`, because `view` is a subtool, there is
-> no dashes in front. It isn't an option. It is tool !
+> no dashes in front. It isn't an option. It is tool!
 
-> ## Take home massage {.callout}
+> ## Notes about spaces {.callout}
 > 
-> - You need a separator to separate each thing you type in
+> - Separate your arguments from each other
 > - The separator in the shell is `space` 
-> - There will always be a sapce:
->   * between command and its options
+> - There will always be a space:
+>
+>   * between commands and their options
 >   * between options and arguments
->   * between arguments themselvs
+>   * between arguments themselves
+>
+>   * you'll also learn quickly that spaces in file names are problematic on the shell. Something to learn about (!!).
 
 ~~~ {.bash}
 ~$ ls
@@ -113,43 +105,38 @@ $ ls
 draft.txt
 ~~~
 
-### BAHS commands
+### BASH commands
 
-I can't see a point jsut giving you list of commands to use. There are so many different commands and tools out
-there and many more comes on the daily basis. Rather start using CLI and every time you want to do something
-think of a command and google for it. e.g I want to copy some files. "How to copy files in terminal linux"
-The key words are copy, terminal and linux. Always have terminal and/or linux and/or BASH in your search.
+There are hundreds of thousands, if not millions of commands available. So many tools out there with more and more on a daily basis. Rather than learning specific commands one by one, it's important to have the fundamentals of the command line. Once you know this and are comfortable then you can always Google for how to use a specific tool. For example: "How to copy files in terminal linux". Always put `terminal` or `bash` in your searches for basic operations such as this.
 
 > ## Go and find new commands. Assignment-one {.challenge}
 >
-> I made a file with a lsit of commands. 
-> The files are plain text files and you can view them in terminal
-> Files under course name under relavant day
-> 1. Go to relevant directory
-> 2. Google how to view content of the file
-> 3. more instructioin inside the file
+> I've made a file with a list of commands. 
+> The files are plain text files and you can view them in your terminal. I'll show you where to find them on the server..
+> 
+> From there..
+> 1. Go to the directory with the files
+> 2. Google how to view content of a file
+> 3. More instructions will be found in each file
 
 > ## Go and find more new commands. Assignment-two {.challenge}
 >
-> There is another file with more commands inside the same directory
-> It doesn't look like a file. 
-> 1. Go to relevant directory
+> There is another file with more commands inside the same directory but it doesn't look like a file. 
+> 1. Go to the directory
 > 2. Use known commands to try to get content from each object in the directory
-> 3. Once you find a relant file copy it to your home directory
+> 3. Once you find the file, copy it to your home directory
 
-The key aspects from the assignment:
-
-- move and copy commands can also rename files. How..?
+The move and copy commands can also rename files in a directory. How?
 
 > ## Deleting Is Forever {.callout}
 >
-> The Unix shell doesn't have a trash bin that we can recover deleted
+> The Unix shell doesn't have a recycle or trash bin that we can recover deleted
 > files from (though most graphical interfaces to Unix do).  Instead,
 > when we delete files, they are unhooked from the file system so that
-> their storage space on disk can be recycled. Tools for finding and
+> their storage space on disk can be recycled automatically. Tools for finding and
 > recovering deleted files do exist, but there's no guarantee they'll
 > work in any particular situation, since the computer may recycle the
-> file's disk space right away.
+> file's disk space right away. Be careful!
 
 ~~~ {.bash}
 ~$ ls

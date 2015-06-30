@@ -34,61 +34,56 @@
 </div>
 <div class="panel-body">
 <ul>
-<li>Explain general syntax of the shell</li>
-<li>Explain commands options and arguments</li>
-<li>Just commands</li>
+<li>Explain the general syntax of the shell</li>
+<li>Explain command options and arguments</li>
+<li>Run commands!</li>
 </ul>
 </div>
 </section>
 <h3 id="shell-reads-commands.-commands-read-arguments">Shell reads commands. Commands read arguments</h3>
-<p>The way CLI works is that you tell it what needs to be done i.e here is command execute it. And it will do exactly that. But command itself demands more information i.e what do you want me to work with ..?</p>
+<p>The way the CLI works is that you tell it what needs to be done i.e “here is command, now execute it”. It will do exactly that. However, sometimes you need to tell it extra information such as the data you want it to operate on. These are <em>arguments</em>, also known as <em>parameters</em>. There are also <em>options</em>.</p>
 <ul>
-<li>some programs can only run by themselvs e.g <code>date</code>, <code>cal</code></li>
-<li>some programs can only run with give arguments e.g <code>mv</code>, <code>cp</code></li>
-<li>other programs can run either way, with or without parameters e.g <code>cd</code>, <code>ls</code> <em>what this really means if no arguments give, run with default argument</em></li>
+<li>some programs can only run by themselves e.g <code>date</code>, <code>cal</code></li>
+<li>some programs can only run with given arguments e.g <code>mv</code>, <code>cp</code></li>
+<li>other programs can run either way, with or without parameters e.g <code>cd</code>, <code>ls</code> <em>if you give no arguments, commands assume certain defaults</em></li>
 </ul>
 <p><strong>Some common default arguments</strong></p>
 <ul>
-<li><code>cd</code> by default always changes to <code>/home/john</code></li>
-<li><code>ls</code> by default always list content of the current directory</li>
+<li><code>cd</code> by default always changes to your home directory eg. <code>/home/john</code></li>
+<li><code>ls</code> by default always lists the contents of the current directory</li>
 <li><code>bwa</code> by default runs a help menue</li>
 </ul>
-<p>Just to reiterate something that you have already understand - you always start at the prompt - then you tell the Shell what you want from it i.e which command to run - then tell command what to wrok with i.e which file or directory</p>
-<p>And the syntax always, always going to be command space argument. Doesn’t matter what command you are running there must a separator between command and it argument. Two possible senarios:</p>
+<p>The syntax is always the same. <code>command and arguments</code>. eg <code>tail -f /my/file</code>.</p>
 <ul>
-<li>no space between command and its argument - well shell will not recognise the command</li>
-<li>two spaces between command and its argument - shell will recognise the command, but command will see second space as its argument and might get confused</li>
+<li>Always remember to put spaces between your commands and each argument.</li>
+<li>More than one space is often okay, though not always!</li>
 </ul>
-<p>Would it be cool to also tell any given command how to run..?</p>
-<p>e.g don’t just give me the files, but also give me the size and the date and who owns the files</p>
-<h3 id="actually-commands-considere-given-options-together-with-arguments">Actually commands considere given options together with arguments</h3>
-<p>So happens that the standard for giving options to any commnads is a “dash”:</p>
-<ul>
-<li><code>-h</code> dash h (one dash for short options)</li>
-<li><code>--help</code> dash dash help (two dashed for verbose options)</li>
-</ul>
-<p>both have exacttly the same effect. It is not a bad idea to write you options in verbose manner given that you are going to publish them later or look at yourself and should be very self explanotory.</p>
+<h3 id="commands-and-options">Commands and options</h3>
+<p>There are also <em>options</em>. These always start with a dash and can have their own arguments. Above I typed <code>tail -f /my/file</code> which means “show me the bottom lines of a file (tail) with the file (-f) /my/file (the argument)”.</p>
+<p>Why might I do this?</p>
+<p>A very common option for many programs.. - <code>-h</code> dash h (one dash for short options) - <code>--help</code> dash dash help (two dashed for verbose options)</p>
+<p>Both have exacttly the same effect. It is not a bad idea to write your options in verbose manner given that you are going to publish them later or look at it again yourself. You don’t want to be guessing what -x or -o means in a particular program, for example.</p>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pushpin"></span>Possible syntax for commands options</h2>
+<h2><span class="glyphicon glyphicon-pushpin"></span>More about options</h2>
 </div>
 <div class="panel-body">
-<p>Not always you will both options i.e <code>-h</code> and <code>--help</code>. It is a good practice to have both and alot of tools support that. However sometime you will get one or another. It is possible to get none. e.g STAR</p>
-<p>Another point to note as we will see later some tools are really a collection of tools e.g BWA and SAMtools, hence the name. Therefore you call the tool e.g <code>samtools</code> then you would call subtool e.g <code>view</code> and then you would give options to a subtool, in this case <code>view</code>, because <code>view</code> is a subtool, there is no dashes in front. It isn’t an option. It is tool !</p>
+<p>It’s important to note that some programs don’t give you a single dash and double dash option like <code>-h</code> and <code>--help</code>. It’s good practice to, but bioinformatic tools (and scientific software in general) is famed for not conforming to rules! Another point to note: Some tools are really a collection of tools e.g BWA and SAMtools, hence the name. Therefore you call the tool e.g <code>samtools</code> then you would call subtool e.g <code>view</code> and then you would give options to a subtool, in this case <code>view</code>, because <code>view</code> is a subtool, there is no dashes in front. It isn’t an option. It is tool!</p>
 </div>
 </aside>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pushpin"></span>Take home massage</h2>
+<h2><span class="glyphicon glyphicon-pushpin"></span>Notes about spaces</h2>
 </div>
 <div class="panel-body">
 <ul>
-<li>You need a separator to separate each thing you type in</li>
+<li>Separate your arguments from each other</li>
 <li>The separator in the shell is <code>space</code></li>
-<li>There will always be a sapce:</li>
-<li>between command and its options</li>
+<li><p>There will always be a space:</p></li>
+<li>between commands and their options</li>
 <li>between options and arguments</li>
-<li>between arguments themselvs</li>
+<li><p>between arguments themselves</p></li>
+<li><p>you’ll also learn quickly that spaces in file names are problematic on the shell. Something to learn about (!!).</p></li>
 </ul>
 </div>
 </aside>
@@ -109,14 +104,15 @@ drwxrwxr-x 2 roxane roxane 4096 Jun 29 11:44 raw_data
 drwxrwxr-x 2 roxane roxane 4096 Jun 29 11:45 ref_data</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span></code></pre>
 <pre class="output"><code>draft.txt</code></pre>
-<h3 id="bahs-commands">BAHS commands</h3>
-<p>I can’t see a point jsut giving you list of commands to use. There are so many different commands and tools out there and many more comes on the daily basis. Rather start using CLI and every time you want to do something think of a command and google for it. e.g I want to copy some files. “How to copy files in terminal linux” The key words are copy, terminal and linux. Always have terminal and/or linux and/or BASH in your search.</p>
+<h3 id="bash-commands">BASH commands</h3>
+<p>There are hundreds of thousands, if not millions of commands available. So many tools out there with more and more on a daily basis. Rather than learning specific commands one by one, it’s important to have the fundamentals of the command line. Once you know this and are comfortable then you can always Google for how to use a specific tool. For example: “How to copy files in terminal linux”. Always put <code>terminal</code> or <code>bash</code> in your searches for basic operations such as this.</p>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-pencil"></span>Go and find new commands. Assignment-one</h2>
 </div>
 <div class="panel-body">
-<p>I made a file with a lsit of commands. The files are plain text files and you can view them in terminal Files under course name under relavant day 1. Go to relevant directory 2. Google how to view content of the file 3. more instructioin inside the file</p>
+<p>I’ve made a file with a list of commands. The files are plain text files and you can view them in your terminal. I’ll show you where to find them on the server..</p>
+<p>From there.. 1. Go to the directory with the files 2. Google how to view content of a file 3. More instructions will be found in each file</p>
 </div>
 </section>
 <section class="challenge panel panel-success">
@@ -124,19 +120,16 @@ drwxrwxr-x 2 roxane roxane 4096 Jun 29 11:45 ref_data</code></pre>
 <h2><span class="glyphicon glyphicon-pencil"></span>Go and find more new commands. Assignment-two</h2>
 </div>
 <div class="panel-body">
-<p>There is another file with more commands inside the same directory It doesn’t look like a file. 1. Go to relevant directory 2. Use known commands to try to get content from each object in the directory 3. Once you find a relant file copy it to your home directory</p>
+<p>There is another file with more commands inside the same directory but it doesn’t look like a file. 1. Go to the directory 2. Use known commands to try to get content from each object in the directory 3. Once you find the file, copy it to your home directory</p>
 </div>
 </section>
-<p>The key aspects from the assignment:</p>
-<ul>
-<li>move and copy commands can also rename files. How..?</li>
-</ul>
+<p>The move and copy commands can also rename files in a directory. How?</p>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-pushpin"></span>Deleting Is Forever</h2>
 </div>
 <div class="panel-body">
-<p>The Unix shell doesn’t have a trash bin that we can recover deleted files from (though most graphical interfaces to Unix do). Instead, when we delete files, they are unhooked from the file system so that their storage space on disk can be recycled. Tools for finding and recovering deleted files do exist, but there’s no guarantee they’ll work in any particular situation, since the computer may recycle the file’s disk space right away.</p>
+<p>The Unix shell doesn’t have a recycle or trash bin that we can recover deleted files from (though most graphical interfaces to Unix do). Instead, when we delete files, they are unhooked from the file system so that their storage space on disk can be recycled automatically. Tools for finding and recovering deleted files do exist, but there’s no guarantee they’ll work in any particular situation, since the computer may recycle the file’s disk space right away. Be careful!</p>
 </div>
 </aside>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span>$ <span class="kw">ls</span></code></pre>
