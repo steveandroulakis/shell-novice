@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>Software Carpentry: </title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body class="lesson">
+    <div class="container card">
+      <div class="banner">
+        <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        </a>
+      </div>
+      <article>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h1 class="title"></h1>
+          <h2 class="subtitle">How to get to know a new CLI tool</h2>
+<section class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+</div>
+<div class="panel-body">
+<ul>
+<li>Suggest to lay out directories</li>
+<li>Suggest an approach to explore CLI tool for the first time</li>
+<li>Explore bwa tool</li>
+<li>Explore SAMtools</li>
+</ul>
+</div>
+</section>
+<p>Command-Line interface is super, super easy. I personally find CLI to be much more intuitive then GUI, not because I have experience in it, rather because I understand how to find help. I always find help in either of these three places:</p>
+<p>The thing about CLI that scares people the most, I believe, isn’t the fact that it is black screen or unfamiliar environment rather lack of drop downs, buttons and tick boxes. However CLI has all of those options in one format and in one place and the way you access it is by type it in</p>
+<p>GUI in its nature is very redundant. It will always have more than one way of doing the same thing e.g “toolbar” is just a set of shortcuts, but there is a tools bar at the top, left right and bottom, plus the right click all leading you to the same, one place.</p>
+<h3 id="lay-out-your-directories">Lay out your directories</h3>
+<p>Very, very important is to lay out your directories, exactly as you would on your laptop. And don’t be afraid of the path ! It is nothing more than pointer to files location.</p>
+<p><sub>~</sub> {.bash} ~$ mkdir projects ~$ ls <sub>~</sub> {.output} projects <sub>~</sub> <sub>~</sub> {.bash} ~$ cd projects /projects$ ls <sub>~</sub> {.output} <sub><sub><sub> </sub></sub></sub> {.bash} /projects$ mkdir first-bacterial-work /projects$ ls <sub>~</sub> {.output} first-bacterial-work <sub>~</sub> <sub>~</sub> {.bash} /projects$ cd first-bacterial-work /projects/first-bacterial-work$ ls <sub><sub><sub> </sub></sub></sub> {.output}</p>
+<p><sub>~</sub></p>
+<h3 id="the-steps-to-follow-when-exploring-new-cli-tool">The steps to follow when exploring new CLI tool</h3>
+<ol style="list-style-type: decimal">
+<li>What do I need to do..?</li>
+</ol>
+<ul>
+<li>I need to map my reads</li>
+<li>I need tools for that</li>
+<li>BWA will do that for me</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>How to map reads using BWA..?</li>
+</ol>
+<ul>
+<li>the best way to know is google <em>Even though majority of tools follow this convention where you can run the tool by itself and it will give you help menu with usage at the very top. This is mandatory rather a good practice.</em>
+<ul>
+<li>read the menu (manual)</li>
+</ul></li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Dissect the usage line e.g <code>bwa mem [options] &lt;idxbase&gt; &lt;in1.fq&gt; [in2.fq]</code></li>
+</ol>
+<ul>
+<li>we understand the <code>bwa mem</code> part</li>
+<li>almost always ignore the optional options to start with, because they are optional !</li>
+<li>identify bits that you don’t know and get to know them e.g what is this <idxbase> ..? <em>All mapping tools that I know of, require an index file. That is an index of your reference sequence in FASTA format</em></li>
+<li>run <code>bwa index</code> to get usage on that</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>Have we got all the files we need..?</li>
+</ol>
+<ul>
+<li>source (download or get it otherwise) all the files that you need for the tool to run</li>
+</ul>
+<h3 id="just-get-nike-and-just-do-it-bwa">Just get Nike and Just do it ! BWA</h3>
+<p>Almost always you want to run the tool by itself first. If that fails try with <code>-h</code> and/or <code>--help</code>.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">/projects/first-bacterial-work</span>$ <span class="kw">bwa</span></code></pre>
+<pre class="output"><code>Program: bwa (alignment via Burrows-Wheeler transformation)
+Version: 0.7.5a-r405
+Contact: Heng Li &lt;lh3@sanger.ac.uk&gt;
+
+Usage:   bwa &lt;command&gt; [options]
+
+Command: index         index sequences in the FASTA format
+         mem           BWA-MEM algorithm
+         fastmap       identify super-maximal exact matches
+         pemerge       merge overlapping paired ends (EXPERIMENTAL)
+         aln           gapped/ungapped alignment
+         samse         generate alignment (single ended)
+         sampe         generate alignment (paired ended)
+         bwasw         BWA-SW for long queries
+
+         fa2pac        convert FASTA to PAC format
+         pac2bwt       generate BWT from PAC
+         pac2bwtgen    alternative algorithm for generating BWT
+         bwtupdate     update .bwt to the new format
+         bwt2sa        generate SA from BWT and Occ
+
+Note: To use BWA, you need to first index the genome with `bwa index&#39;. There are
+      three alignment algorithms in BWA: `mem&#39;, `bwasw&#39; and `aln/samse/sampe&#39;. If)      you are not
+sure which to use, try `bwa mem&#39; first. Please `man ./bwa.1&#39; for)      for the manual.</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">/projects/first-bacterial-work</span>$ <span class="kw">bwa</span> mem</code></pre>
+<pre class="output"><code>Usage: bwa mem [options] &lt;idxbase&gt; &lt;in1.fq&gt; [in2.fq]
+
+Algorithm options:
+
+       -t INT     number of threads [1]
+       -k INT     minimum seed length [19]
+       -w INT     band width for banded alignment [100]
+       -d INT     off-diagonal X-dropoff [100]
+       -r FLOAT   look for internal seeds inside a seed longer than {-k} * FLOAT [1.5]
+       -c INT     skip seeds with more than INT occurrences [10000]
+       -S         skip mate rescue
+       -P         skip pairing; mate rescue performed unless -S also in use
+       -A INT     score for a sequence match [1]
+       -B INT     penalty for a mismatch [4]
+       -O INT     gap open penalty [6]
+       -E INT     gap extension penalty; a gap of size k cost {-O} + {-E}*k [1]
+       -L INT     penalty for clipping [5]
+       -U INT     penalty for an unpaired read pair [17]
+
+Input/output options:
+
+       -p         first query file consists of interleaved paired-end sequences
+       -R STR     read group header line such as &#39;@RG\tID:foo\tSM:bar&#39; [null]]]       -v INT
+verbose level: 1=error, 2=warning, 3=message, 4+=debugging [3]]       -T INT     minimum score to
+output [30]]       -a         output all alignments for SE or unpaired PE]       -C         append
+FASTA/FASTQ comment to SAM output]       -M         mark shorter split hits as secondary (for Picard/GATK compatibility))Note: Please read the man page for detailed description of the command line and options.</code></pre>
+<p><em>run bwa again look for answers in the help menu</em></p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">/projects/first-bacterial-work</span>$ <span class="kw">bwa</span> index</code></pre>
+<pre class="output"><code>Usage:   bwa index [-a bwtsw|is] [-c] &lt;in.fasta&gt;
+
+Options: -a STR    BWT construction algorithm: bwtsw or is [auto]
+         -p STR    prefix of the index [same as fasta name]
+         -6        index files named as &lt;in.fasta&gt;.64.* instead of &lt;in.fasta&gt;.* 
+
+Warning: `-a bwtsw&#39; does not work for short genomes, while `-a is&#39; and
+         `-a div&#39; do not work not for long genomes. Please choose `-a&#39;
+         according to the length of the genome.</code></pre>
+<p><em>back to the point number 3 dissect the usage line. Start by ignoring optional options</em> <em>It looks like for bwa all you need to do is to give a reference file</em></p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">/projects/first-bacterial-work</span>$ <span class="kw">cd</span>
+<span class="kw">~</span>$ <span class="kw">ls</span></code></pre>
+<pre class="output"><code></code></pre>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Utilise your skills and make and index file(s)</h2>
+</div>
+<div class="panel-body">
+<ol style="list-style-type: decimal">
+<li>go to your home directory</li>
+<li>make new directory e.g working-dir or test-dir</li>
+<li>copy reference bacterial genome from ref-files directory somewhere under <code>/mnt/shared/software-carpentry</code> to you newly created directory</li>
+<li>make bwa index</li>
+</ol>
+</div>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Make index files in its own directory</h2>
+</div>
+<div class="panel-body">
+<ol style="list-style-type: decimal">
+<li>remove all files in one go</li>
+<li>create index files again, but make sure they go into its own directory e.g bwa-index</li>
+</ol>
+</div>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Make reference directory</h2>
+</div>
+<div class="panel-body">
+<ol style="list-style-type: decimal">
+<li>under your home directory make reference directory</li>
+<li>all your reference files and directories will go into that directory e.g bwa-index and fasta files</li>
+<li>copy reference genome file to reference directory</li>
+<li>make bwa index inside your reference directory</li>
+</ol>
+</div>
+</section>
+<p>Different ways of redirection stuff to new directory</p>
+<ul>
+<li>some tools will a separate option e.g -o output directory</li>
+<li>some tools will create your directory</li>
+<li>others will not <em>you really don’t know. I always assume that they do and it error out obvioiusly they don’t then</em></li>
+<li>others will assume the path prefix (bwa assumes the path prefix) <em>I understand that if you specify the out directory in the path prefix than it must be created before hand</em></li>
+</ul>
+<h3 id="samtools">SAMtools</h3>
+<p>For me Bioinformatics and CLI in general isn’t about remebering all the tools and commands and they options, but about understanding how to ask the question and how quickly filter through the answers.</p>
+<p><em>run samtools and expore options that might need. Follow the general protocol</em></p>
+        </div>
+      </div>
+      </article>
+      <div class="footer">
+        <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
+        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/shell-novice">Source</a>
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+  </body>
+</html>
