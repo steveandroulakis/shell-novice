@@ -57,7 +57,7 @@ Here is three dot points that summary Unix philosophy:
 **Command line is more like LEGO and GUI is like an action figure, but you can't chop and change**
 
 ~~~ {.bash}
-~$ cd ref-files
+$ cd ref-files
 /ref-files$ ls
 ~~~
 ~~~ {.output}

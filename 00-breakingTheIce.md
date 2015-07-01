@@ -64,9 +64,9 @@ __Common tools:__
 It is given that keyboard is faster at doing common tasks you could do with a mouse e.g:
 
 - In a browser..
-  * ctrl^l - highlights the URL
-  * ctrl^k - places cursor in the search bar
-  * alt^ (arrows left or right) - page history back/forward
+  * `ctrl^l` - highlights the URL
+  * `ctrl^k` - places cursor in the search bar
+  * `alt^` (arrows left or right) - page history back/forward
 
 - Common programs (for Mac, replace `ctrl` with `command`)
   * `ctrl^c` copy

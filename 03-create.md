@@ -64,19 +64,19 @@ you are going to publish them later or look at it again yourself. You don't want
 >   * you'll also learn quickly that spaces in file names are problematic on the shell. Something to learn about (!!).
 
 ~~~ {.bash}
-~$ ls
+$ ls
 ~~~
 ~~~ {.output}
 
 ~~~
 ~~~ {.bash}
-~$ cd /mnt/shared/RNAseq
+$ cd /mnt/shared/RNAseq
 ~~~
 ~~~ {.output}
 mapping  raw_data  ref_data
 ~~~
 ~~~ {.bash}
-~$ ls -1
+$ ls -1
 ~~~
 ~~~ {.output}
 mapping
@@ -139,24 +139,24 @@ The move and copy commands can also rename files in a directory. How?
 > file's disk space right away. Be careful!
 
 ~~~ {.bash}
-~$ ls
+$ ls
 ~~~
 ~~~ {.output}
 file-one.txt file-two.txt
 ~~~
 ~~~ {.bash}
-~$ cp /mnt/shared/RNAseq/software-carpentry/day-one/.hidden-list-of-files.txt
+$ cp /mnt/shared/RNAseq/software-carpentry/day-one/.hidden-list-of-files.txt
 $ ls
 ~~~
 ~~~ {.output}
 
 ~~~
 ~~~ {.bash}
-~$ cp .hidden-list-of-files.txt list-of-files.txt
+$ cp .hidden-list-of-files.txt list-of-files.txt
 ~~~
 ~~~ {.bash}
-~$ rm list-of-files.txt
-~$ ls
+$ rm list-of-files.txt
+$ ls
 ~~~
 ~~~ {.output}
 
@@ -182,17 +182,17 @@ Let's create that directory and file one more time.
 rather than going into the `thesis` directory and running `nano` on `draft.txt` there.)
 
 ~~~ {.bash}
-~$ ls
+$ ls
 ~~~
 ~~~ {.output}
 
 ~~~
 use arrow up to get previous cp commands
 ~~~ {.bash}
-~$ mkdir first-dir
+$ mkdir first-dir
 ~~~
 ~~~ {.bash}
-~$ cd first-dir
+$ cd first-dir
 /first-dir$ ls 
 /first-dir$ touch empty-file.txt
 /first-dir$ ls
@@ -202,14 +202,14 @@ empty-file.txt
 ~~~
 ~~~ {.bash}
 /first-dir$ cd ..
-~$ ls
+$ ls
 ~~~
 ~~~ {.output}
 first-dir
 ~~~
 ~~~ {.bash}
-~$ rm -r first-dir
-~$ ls
+$ rm -r first-dir
+$ ls
 ~~~
 ~~~ {.output}
 

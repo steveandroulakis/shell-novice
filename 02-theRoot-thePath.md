@@ -25,7 +25,7 @@ Lets start exploring from the start, from the ground floor up, from the roots of
 _remember that we need to type commands in, execute them and read the response_
 
 ~~~ {.bash}
-~$ cd /
+$ cd /
 ~~~
 ~~~ {.output}
 /$
@@ -111,7 +111,7 @@ The leading `/` tells the computer to follow the path from the root of the file 
 so it always refers to exactly one directory, no matter where we are when we run the command.
 
 ~~~ {.bash}
-~$ cd /mnt/shared/
+$ cd /mnt/shared/
 ~~~
 I start at the root, next stop `mnt`, I don't want to stop at `mnt`, next stop at `shared`
 ~~~ {.bash}
@@ -131,13 +131,13 @@ are currently at.
 - `pwd` print working directory, which just tells you where you are on the file system
 
 ~~~ {.bash}
-~$ pwd
+$ pwd
 ~~~
 ~~~ {.output}
 /home/john
 ~~~
 ~~~ {.bash}
-~$ cd /mnt 
+$ cd /mnt 
 ~~~
 ~~~ {.output}
 lost+found shared

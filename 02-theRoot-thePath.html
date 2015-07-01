@@ -46,7 +46,7 @@
 <h3 id="change-directory-and-list-content">Change Directory and List content</h3>
 <p>Lets start exploring from the start, from the ground floor up, from the roots of the tree… <strong>root</strong></p>
 <p><em>remember that we need to type commands in, execute them and read the response</em></p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span>$ <span class="kw">cd</span> /</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> /</code></pre>
 <pre class="output"><code>/$</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">/</span>$ <span class="kw">ls</span></code></pre>
 <pre class="output"><code>bin  boot  dev  etc  home  initrd.img  initrd.img.old  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin
@@ -99,7 +99,7 @@ srv  sys  tmp  usr  var  vmlinuz  vmlinuz.old</code></pre>
 </div>
 </aside>
 <p>The leading <code>/</code> tells the computer to follow the path from the root of the file system, so it always refers to exactly one directory, no matter where we are when we run the command.</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span>$ <span class="kw">cd</span> /mnt/shared/</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> /mnt/shared/</code></pre>
 <p>I start at the root, next stop <code>mnt</code>, I don’t want to stop at <code>mnt</code>, next stop at <code>shared</code> <sub>~</sub> {.bash} /mnt/shared$ ls <sub><sub><sub> </sub></sub></sub> {.output} data RNAseq <sub>~</sub></p>
 <p>It doesn’t matter where you are as long as you follow <strong>full path</strong> you are not going to get lost</p>
 <h3 id="why-can-i-not-start-from-where-i-left-off..">Why can I not start from where I left off..?</h3>
@@ -107,9 +107,9 @@ srv  sys  tmp  usr  var  vmlinuz  vmlinuz.old</code></pre>
 <ul>
 <li><code>pwd</code> print working directory, which just tells you where you are on the file system</li>
 </ul>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span>$ <span class="kw">pwd</span></code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">pwd</span></code></pre>
 <pre class="output"><code>/home/john</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span>$ <span class="kw">cd</span> /mnt </code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> /mnt </code></pre>
 <pre class="output"><code>lost+found shared</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">/mnt</span>$ <span class="kw">cd</span> shared/RNAseq</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">/mnt/shared/RNAseq</span>$ <span class="kw">pwd</span></code></pre>

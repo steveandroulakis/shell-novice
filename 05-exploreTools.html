@@ -46,8 +46,18 @@
 <p>GUI in its nature is very redundant. It will always have more than one way of doing the same thing e.g “toolbar” is just a set of shortcuts, but there is a tools bar at the top, left right and bottom, plus the right click all leading you to the same, one place.</p>
 <h3 id="lay-out-your-directories">Lay out your directories</h3>
 <p>Very, very important is to lay out your directories, exactly as you would on your laptop. And don’t be afraid of the path ! It is nothing more than pointer to files location.</p>
-<p><sub>~</sub> {.bash} ~$ mkdir projects ~$ ls <sub>~</sub> {.output} projects <sub>~</sub> <sub>~</sub> {.bash} ~$ cd projects /projects$ ls <sub>~</sub> {.output} <sub><sub><sub> </sub></sub></sub> {.bash} /projects$ mkdir first-bacterial-work /projects$ ls <sub>~</sub> {.output} first-bacterial-work <sub>~</sub> <sub>~</sub> {.bash} /projects$ cd first-bacterial-work /projects/first-bacterial-work$ ls <sub><sub><sub> </sub></sub></sub> {.output}</p>
-<p><sub>~</sub></p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">mkdir</span> projects
+$ <span class="kw">ls</span></code></pre>
+<pre class="output"><code>projects</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> projects
+<span class="kw">/projects</span>$ <span class="kw">ls</span></code></pre>
+<pre class="output"><code></code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">/projects</span>$ <span class="kw">mkdir</span> first-bacterial-work
+<span class="kw">/projects</span>$ <span class="kw">ls</span></code></pre>
+<pre class="output"><code>first-bacterial-work</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">/projects</span>$ <span class="kw">cd</span> first-bacterial-work
+<span class="kw">/projects/first-bacterial-work</span>$ <span class="kw">ls</span></code></pre>
+<pre class="output"><code></code></pre>
 <h3 id="the-steps-to-follow-when-exploring-new-cli-tool">The steps to follow when exploring new CLI tool</h3>
 <ol style="list-style-type: decimal">
 <li>What do I need to do..?</li>
@@ -55,12 +65,7 @@
 <ul>
 <li>I need to map my reads</li>
 <li>I need tools for that</li>
-<li>BWA will do that for me</li>
-</ul>
-<ol start="2" style="list-style-type: decimal">
-<li>How to map reads using BWA..?</li>
-</ol>
-<ul>
+<li>BWA will do that for me 2. How to map reads using BWA..?</li>
 <li>the best way to know is google <em>Even though majority of tools follow this convention where you can run the tool by itself and it will give you help menu with usage at the very top. This is mandatory rather a good practice.</em>
 <ul>
 <li>read the menu (manual)</li>

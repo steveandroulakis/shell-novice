@@ -87,11 +87,11 @@
 </ul>
 </div>
 </aside>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span>$ <span class="kw">ls</span></code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span></code></pre>
 <pre class="output"><code></code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span>$ <span class="kw">cd</span> /mnt/shared/RNAseq</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> /mnt/shared/RNAseq</code></pre>
 <pre class="output"><code>mapping  raw_data  ref_data</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span>$ <span class="kw">ls</span> -1</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span> -1</code></pre>
 <pre class="output"><code>mapping
 raw_data
 ref_data</code></pre>
@@ -132,14 +132,14 @@ drwxrwxr-x 2 roxane roxane 4096 Jun 29 11:45 ref_data</code></pre>
 <p>The Unix shell doesn’t have a recycle or trash bin that we can recover deleted files from (though most graphical interfaces to Unix do). Instead, when we delete files, they are unhooked from the file system so that their storage space on disk can be recycled automatically. Tools for finding and recovering deleted files do exist, but there’s no guarantee they’ll work in any particular situation, since the computer may recycle the file’s disk space right away. Be careful!</p>
 </div>
 </aside>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span>$ <span class="kw">ls</span></code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span></code></pre>
 <pre class="output"><code>file-one.txt file-two.txt</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span>$ <span class="kw">cp</span> /mnt/shared/RNAseq/software-carpentry/day-one/.hidden-list-of-files.txt
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cp</span> /mnt/shared/RNAseq/software-carpentry/day-one/.hidden-list-of-files.txt
 $ <span class="kw">ls</span></code></pre>
 <pre class="output"><code></code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span>$ <span class="kw">cp</span> .hidden-list-of-files.txt list-of-files.txt</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span>$ <span class="kw">rm</span> list-of-files.txt
-<span class="kw">~</span>$ <span class="kw">ls</span></code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cp</span> .hidden-list-of-files.txt list-of-files.txt</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">rm</span> list-of-files.txt
+$ <span class="kw">ls</span></code></pre>
 <pre class="output"><code></code></pre>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
@@ -152,9 +152,9 @@ $ <span class="kw">ls</span></code></pre>
 </div>
 </aside>
 <p>Let’s create that directory and file one more time. (Note that this time we’re running <code>nano</code> with the path <code>thesis/draft.txt</code>, rather than going into the <code>thesis</code> directory and running <code>nano</code> on <code>draft.txt</code> there.)</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span>$ <span class="kw">ls</span></code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span></code></pre>
 <pre class="output"><code></code></pre>
-<p>use arrow up to get previous cp commands <sub>~</sub> {.bash} ~$ mkdir first-dir <sub><sub><sub> </sub></sub></sub> {.bash} ~$ cd first-dir /first-dir$ ls /first-dir$ touch empty-file.txt /first-dir$ ls <sub><sub><sub> </sub></sub></sub> {.output} empty-file.txt <sub><sub><sub> </sub></sub></sub> {.bash} /first-dir$ cd .. ~$ ls <sub><sub><sub> </sub></sub></sub> {.output} first-dir <sub><sub><sub> </sub></sub></sub> {.bash} ~$ rm -r first-dir ~$ ls <sub><sub><sub> </sub></sub></sub> {.output}</p>
+<p>use arrow up to get previous cp commands <sub>~</sub> {.bash} $ mkdir first-dir <sub><sub><sub> </sub></sub></sub> {.bash} $ cd first-dir /first-dir$ ls /first-dir$ touch empty-file.txt /first-dir$ ls <sub><sub><sub> </sub></sub></sub> {.output} empty-file.txt <sub><sub><sub> </sub></sub></sub> {.bash} /first-dir$ cd .. $ ls <sub><sub><sub> </sub></sub></sub> {.output} first-dir <sub><sub><sub> </sub></sub></sub> {.bash} $ rm -r first-dir $ ls <sub><sub><sub> </sub></sub></sub> {.output}</p>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-pencil"></span>Renaming files</h2>

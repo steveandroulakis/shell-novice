@@ -29,27 +29,34 @@ Very, very important is to lay out your directories, exactly as you would on you
 be afraid of the path ! It is nothing more than pointer to files location.
 
 ~~~ {.bash}
-~$ mkdir projects
-~$ ls
+$ mkdir projects
+$ ls
+~~~
 ~~~ {.output}
 projects
 ~~~ 
+
 ~~~ {.bash}
-~$ cd projects
+$ cd projects
 /projects$ ls
-~~~ {.output}
 ~~~
+~~~ {.output}
+
+~~~
+
 ~~~ {.bash}
 /projects$ mkdir first-bacterial-work
 /projects$ ls
+~~~~
 ~~~ {.output}
 first-bacterial-work
 ~~~ 
+
 ~~~ {.bash}
 /projects$ cd first-bacterial-work
 /projects/first-bacterial-work$ ls
 ~~~
-~~~ {.output}
+~~~{.output}
 
 ~~~
 
@@ -58,9 +65,7 @@ first-bacterial-work
 1. What do I need to do..? 
    - I need to map my reads
    - I need tools for that
-   - BWA will do that for me
-
-2. How to map reads using BWA..?
+   - BWA will do that for me 2. How to map reads using BWA..?
    - the best way to know is google
 _Even though majority of tools follow this convention where you can run the tool by itself and it will give
 you help menu with usage at the very top. This is mandatory rather a good practice._
