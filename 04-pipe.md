@@ -1,7 +1,7 @@
 ---
 layout: page
 title: The Unix Shell
-subtitle: Chaining commands together with pipe
+subtitle: Chaining commands together with the pipe
 minutes: 15
 ---
 > ## Learning Objectives {.objectives}
@@ -16,16 +16,15 @@ minutes: 15
 
 ### How to get data to and from the server..?
 
-- `scp` easy peasy, just like standard `cp` works, `copy "what you want to copy" "where you want it"`
-The hardest thing will be understanding the path to and from server. However REMEMBER that everything starts
-at the root. Just give a full path and you will never go wrong. 
+- `scp` ..easy peasy, just like standard `cp` works, `copy "what you want to copy, where you want it"`
+The hardest thing will be understanding the path to and from server. They have to different file systems, paths, trees. However REMEMBER that everything starts at the root. Just give a full path and you will never go wrong.
 
 #### Copy TO the server
 
 e.g `scp test.txt crunch.erc.monash.edu:/home/john/`
 
 The path to the server will always start with the server name e.g crunch.erc.monash.edu pluse `:` everything
-afer is just your normal full path..
+after is just your normal full path..
 
 #### Copy FROM the server
 
@@ -33,28 +32,32 @@ e.g `scp crunch.erc.monash.edu:/home/john/test.txt /home/john`
 OR simply dot
 e.g `scp crunch.erc.monash.edu:/home/john/test.txt .`
 
-#### Download TO the server
+Note: Using SCP on Windows is not supported out of the box! However there are downloadable point and click (GUI) programs such as WinSCP and Cyberduck that can help you.
+
+#### I'm on my server and I want to get a file from the internet..
 
 - `wget` 
 
 e.g `wget iftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000005845.2_ASM584v2/GCF_000005845.2_ASM584v2_genomic.fna.gz`
 
-> ## Download data set from URL {.challenge}
+The NCBI (National Center for Biotechnology Information) is one of several very large centres with public research data. wget is a great way to get these files for processing (eg. reference genome indexes).
+
+> ## Download a data set from a URL {.challenge}
 >
-> 1. Download zip file into your home directory
-> 2. Use unzip command to get the content of the unzip file
-> 3. Also try to unzip FASTQ files
+> 1. Download a zip file into your home directory
+> 2. Use the unzip command to get the content of the unzip file
+> 3. Also try to unzip FASTQ.gz files.. what happens?
 
 ### Unix philosophy
 
-One last thing I would like to mention is Unix philosophy. The essence of Unix philosophy is simplicity.
-Here is three dot points that summary Unix philosophy:
+One last thing I would like to mention is the Unix philosophy. The essence of Unix philosophy is simplicity.
+Here are three dot points that summarize the Unix philosophy:
 
-- Every tools and/or command made to do one simple task
-- Many different commands can be chained together into one super command
-- Therefore number of different commands combination is limited by your imagination or need
+- Every tool/command is made to do one simple task
+- Because of this, different commands can be chained together into one super command
+- Therefore the number of different commands usable in combination is limited by your imagination or need
 
-**Command line is more like LEGO and GUI is like an action figure, but you can't chop and change**
+**The command line is more like LEGO. You can build a tonne of stuff with LEGO. Point and click applications are an action figure, slick, but not hugely modifiable.**
 
 ~~~ {.bash}
 $ cd ref-files
@@ -66,7 +69,7 @@ bacterial-genome.fasta
 
 > ## Renaming fasta file {.challenge}
 >
-> Rename fasta such that its extention is .fa insttead of .fasta
+> Rename the fasta file so that its extension is .fa instead of .fasta
 
 > ## Wildcards {.callout}
 > 

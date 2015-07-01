@@ -1,32 +1,19 @@
 ---
 layout:
 page title: The Unix Shell
-subtitle: How to get to know a new CLI tool
+subtitle: Getting to know a bioinformatic tool
 minutes: 15
 ---
 > ## Learning Objectives {.objectives}
 >
-> * Suggest to lay out directories
-> * Suggest an approach to explore CLI tool for the first time
-> * Explore bwa tool
-> * Explore SAMtools
+> * Understand how to structure your processed data
+> * Know how to explore a new command line tool
+> * Get familiar with the bwa bioinformatics tool
+> * Explore the SAMtools bioinformatics suite
 
-Command-Line interface is super, super easy. I personally find CLI to be much more intuitive then
-GUI, not because I have experience in it, rather because I understand how to find help. I always
-find help in either of these three places: 
+### Organise your data
 
-The thing about CLI that scares people the most, I believe, isn't the fact that it is black screen
-or unfamiliar environment rather lack of drop downs, buttons and tick boxes. However CLI has all of
-those options in one format and in one place and the way you access it is by type it in
-
-GUI in its nature is very redundant. It will always have more than one way of doing the same thing
-e.g "toolbar" is just a set of shortcuts, but there is a tools bar at the top, left right and
-bottom, plus the right click all leading you to the same, one place.
-
-### Lay out your directories
-
-Very, very important is to lay out your directories, exactly as you would on your laptop. And don't
-be afraid of the path ! It is nothing more than pointer to files location.
+Here's how I lay out my bioinformatics data on the group server:
 
 ~~~ {.bash}
 $ mkdir projects
@@ -66,25 +53,21 @@ first-bacterial-work
    - I need to map my reads
    - I need tools for that
    - BWA will do that for me 2. How to map reads using BWA..?
-   - the best way to know is google
-_Even though majority of tools follow this convention where you can run the tool by itself and it will give
-you help menu with usage at the very top. This is mandatory rather a good practice._
-    - read the menu (manual) 
+   - Google no doubt has it.
+_Many tools give you a bit of help text if you run them without any arguments. However this is good practice and not mandatory._
+    - Read the manual or scientific literature.
 
 3. Dissect the usage line e.g `bwa mem [options] <idxbase> <in1.fq> [in2.fq]`
-   - we understand the `bwa mem` part
-   - almost always ignore the optional options to start with, because they are optional !
-   - identify bits that you don't know and get to know them e.g what is this <idxbase> ..?
-_All mapping tools that I know of, require an index file. That is an index of your reference sequence
-in FASTA format_
-   - run `bwa index` to get usage on that
+   - We understand the `bwa mem` part
+   - bwa has a series of options, but lets ignore them for now.
+   - identify bits that you don't know. eg. what's <idxbase> ..?
+_Mapping tools require an index file. ie. An index of your reference genome. Most often in FASTA format_
+   - run `bwa index` to learn what it does and how to use it.
 
-4. Have we got all the files we need..?
+4. Make sure you have all your data ready.
    - source (download or get it otherwise) all the files that you need for the tool to run
 
-### Just get Nike and Just do it ! BWA
-
-Almost always you want to run the tool by itself first. If that fails try with `-h` and/or `--help`.
+### BWA: 'Just do it!'
 
 ~~~ {.bash}
 /projects/first-bacterial-work$ bwa
@@ -164,8 +147,8 @@ Warning: `-a bwtsw' does not work for short genomes, while `-a is' and
          according to the length of the genome.
 ~~~
 
-_back to the point number 3 dissect the usage line. Start by ignoring optional options_
-_It looks like for bwa all you need to do is to give a reference file_
+_Time to dissect the usage line. Start by ignoring the (non-mandatory) options_
+_From the usage section, it appears as if bwa only requires an index file to run._
 
 ~~~ {.bash}
 /projects/first-bacterial-work$ cd
@@ -177,36 +160,19 @@ _It looks like for bwa all you need to do is to give a reference file_
 
 > ## Utilise your skills and make and index file(s) {.challenge}
 >
-> 1. go to your home directory
-> 2. make new directory e.g working-dir or test-dir
-> 3. copy reference bacterial genome from ref-files directory somewhere under `/mnt/shared/software-carpentry`
->    to you newly created directory
-> 4. make bwa index
+> 1. go to your home directory (~/)
+> 2. make a new directory for your data e.g working-dir or test-dir
+> 3. copy our reference bacterial genome from the ref-files directory under `/mnt/shared/software-carpentry` (find the file name with `ls`!)
+>    to your newly created directory
+> 4. run bwa to make the index, ready for alignment
 
 > ## Make index files in its own directory {.challenge}
 >
-> 1. remove all files in one go
-> 2. create index files again, but make sure they go into its own directory e.g bwa-index
-
-> ## Make reference directory {.challenge}
->
-> 1. under your home directory make reference directory 
-> 2. all your reference files and directories will go into that directory e.g bwa-index and fasta files
-> 3. copy reference genome file to reference directory
-> 4. make bwa index inside your reference directory
-
-Different ways of redirection stuff to new directory
-
-- some tools will a separate option e.g -o output directory
-  * some tools will create your directory
-  * others will not
-_you really don't know. I always assume that they do and it error out obvioiusly they don't then_
-- others will assume the path prefix (bwa assumes the path prefix)
-_I understand that if you specify the out directory in the path prefix than it must be created before hand_
+> 1. remove all of the index files you created (try to remove them in one go with the * wildcard, but be careful!)
+> 2. create your index files again using bwa, but make sure they go into their own directory e.g make a new one called bwa-index
 
 ### SAMtools 
 
-For me Bioinformatics and CLI in general isn't about remebering all the tools and commands and they options,
-but about understanding how to ask the question and how quickly filter through the answers.
+Lets explore SAMtools together..
 
-_run samtools and expore options that might need. Follow the general protocol_
+_First, run the `samtools` command on its own._

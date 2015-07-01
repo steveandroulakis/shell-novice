@@ -27,25 +27,22 @@
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <h1 class="title"></h1>
-          <h2 class="subtitle">How to get to know a new CLI tool</h2>
+          <h2 class="subtitle">Getting to know a bioinformatic tool</h2>
 <section class="objectives panel panel-warning">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
 </div>
 <div class="panel-body">
 <ul>
-<li>Suggest to lay out directories</li>
-<li>Suggest an approach to explore CLI tool for the first time</li>
-<li>Explore bwa tool</li>
-<li>Explore SAMtools</li>
+<li>Understand how to structure your processed data</li>
+<li>Know how to explore a new command line tool</li>
+<li>Get familiar with the bwa bioinformatics tool</li>
+<li>Explore the SAMtools bioinformatics suite</li>
 </ul>
 </div>
 </section>
-<p>Command-Line interface is super, super easy. I personally find CLI to be much more intuitive then GUI, not because I have experience in it, rather because I understand how to find help. I always find help in either of these three places:</p>
-<p>The thing about CLI that scares people the most, I believe, isn’t the fact that it is black screen or unfamiliar environment rather lack of drop downs, buttons and tick boxes. However CLI has all of those options in one format and in one place and the way you access it is by type it in</p>
-<p>GUI in its nature is very redundant. It will always have more than one way of doing the same thing e.g “toolbar” is just a set of shortcuts, but there is a tools bar at the top, left right and bottom, plus the right click all leading you to the same, one place.</p>
-<h3 id="lay-out-your-directories">Lay out your directories</h3>
-<p>Very, very important is to lay out your directories, exactly as you would on your laptop. And don’t be afraid of the path ! It is nothing more than pointer to files location.</p>
+<h3 id="organise-your-data">Organise your data</h3>
+<p>Here’s how I lay out my bioinformatics data on the group server:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">mkdir</span> projects
 $ <span class="kw">ls</span></code></pre>
 <pre class="output"><code>projects</code></pre>
@@ -66,28 +63,27 @@ $ <span class="kw">ls</span></code></pre>
 <li>I need to map my reads</li>
 <li>I need tools for that</li>
 <li>BWA will do that for me 2. How to map reads using BWA..?</li>
-<li>the best way to know is google <em>Even though majority of tools follow this convention where you can run the tool by itself and it will give you help menu with usage at the very top. This is mandatory rather a good practice.</em>
+<li>Google no doubt has it. <em>Many tools give you a bit of help text if you run them without any arguments. However this is good practice and not mandatory.</em>
 <ul>
-<li>read the menu (manual)</li>
+<li>Read the manual or scientific literature.</li>
 </ul></li>
 </ul>
 <ol start="3" style="list-style-type: decimal">
 <li>Dissect the usage line e.g <code>bwa mem [options] &lt;idxbase&gt; &lt;in1.fq&gt; [in2.fq]</code></li>
 </ol>
 <ul>
-<li>we understand the <code>bwa mem</code> part</li>
-<li>almost always ignore the optional options to start with, because they are optional !</li>
-<li>identify bits that you don’t know and get to know them e.g what is this <idxbase> ..? <em>All mapping tools that I know of, require an index file. That is an index of your reference sequence in FASTA format</em></li>
-<li>run <code>bwa index</code> to get usage on that</li>
+<li>We understand the <code>bwa mem</code> part</li>
+<li>bwa has a series of options, but lets ignore them for now.</li>
+<li>identify bits that you don’t know. eg. what’s <idxbase> ..? <em>Mapping tools require an index file. ie. An index of your reference genome. Most often in FASTA format</em></li>
+<li>run <code>bwa index</code> to learn what it does and how to use it.</li>
 </ul>
 <ol start="4" style="list-style-type: decimal">
-<li>Have we got all the files we need..?</li>
+<li>Make sure you have all your data ready.</li>
 </ol>
 <ul>
 <li>source (download or get it otherwise) all the files that you need for the tool to run</li>
 </ul>
-<h3 id="just-get-nike-and-just-do-it-bwa">Just get Nike and Just do it ! BWA</h3>
-<p>Almost always you want to run the tool by itself first. If that fails try with <code>-h</code> and/or <code>--help</code>.</p>
+<h3 id="bwa-just-do-it">BWA: ‘Just do it!’</h3>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">/projects/first-bacterial-work</span>$ <span class="kw">bwa</span></code></pre>
 <pre class="output"><code>Program: bwa (alignment via Burrows-Wheeler transformation)
 Version: 0.7.5a-r405
@@ -151,7 +147,7 @@ Options: -a STR    BWT construction algorithm: bwtsw or is [auto]
 Warning: `-a bwtsw&#39; does not work for short genomes, while `-a is&#39; and
          `-a div&#39; do not work not for long genomes. Please choose `-a&#39;
          according to the length of the genome.</code></pre>
-<p><em>back to the point number 3 dissect the usage line. Start by ignoring optional options</em> <em>It looks like for bwa all you need to do is to give a reference file</em></p>
+<p><em>Time to dissect the usage line. Start by ignoring the (non-mandatory) options</em> <em>From the usage section, it appears as if bwa only requires an index file to run.</em></p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">/projects/first-bacterial-work</span>$ <span class="kw">cd</span>
 <span class="kw">~</span>$ <span class="kw">ls</span></code></pre>
 <pre class="output"><code></code></pre>
@@ -161,10 +157,10 @@ Warning: `-a bwtsw&#39; does not work for short genomes, while `-a is&#39; and
 </div>
 <div class="panel-body">
 <ol style="list-style-type: decimal">
-<li>go to your home directory</li>
-<li>make new directory e.g working-dir or test-dir</li>
-<li>copy reference bacterial genome from ref-files directory somewhere under <code>/mnt/shared/software-carpentry</code> to you newly created directory</li>
-<li>make bwa index</li>
+<li>go to your home directory (~/)</li>
+<li>make a new directory for your data e.g working-dir or test-dir</li>
+<li>copy our reference bacterial genome from the ref-files directory under <code>/mnt/shared/software-carpentry</code> (find the file name with <code>ls</code>!) to your newly created directory</li>
+<li>run bwa to make the index, ready for alignment</li>
 </ol>
 </div>
 </section>
@@ -174,34 +170,14 @@ Warning: `-a bwtsw&#39; does not work for short genomes, while `-a is&#39; and
 </div>
 <div class="panel-body">
 <ol style="list-style-type: decimal">
-<li>remove all files in one go</li>
-<li>create index files again, but make sure they go into its own directory e.g bwa-index</li>
+<li>remove all of the index files you created (try to remove them in one go with the * wildcard, but be careful!)</li>
+<li>create your index files again using bwa, but make sure they go into their own directory e.g make a new one called bwa-index</li>
 </ol>
 </div>
 </section>
-<section class="challenge panel panel-success">
-<div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Make reference directory</h2>
-</div>
-<div class="panel-body">
-<ol style="list-style-type: decimal">
-<li>under your home directory make reference directory</li>
-<li>all your reference files and directories will go into that directory e.g bwa-index and fasta files</li>
-<li>copy reference genome file to reference directory</li>
-<li>make bwa index inside your reference directory</li>
-</ol>
-</div>
-</section>
-<p>Different ways of redirection stuff to new directory</p>
-<ul>
-<li>some tools will a separate option e.g -o output directory</li>
-<li>some tools will create your directory</li>
-<li>others will not <em>you really don’t know. I always assume that they do and it error out obvioiusly they don’t then</em></li>
-<li>others will assume the path prefix (bwa assumes the path prefix) <em>I understand that if you specify the out directory in the path prefix than it must be created before hand</em></li>
-</ul>
 <h3 id="samtools">SAMtools</h3>
-<p>For me Bioinformatics and CLI in general isn’t about remebering all the tools and commands and they options, but about understanding how to ask the question and how quickly filter through the answers.</p>
-<p><em>run samtools and expore options that might need. Follow the general protocol</em></p>
+<p>Lets explore SAMtools together..</p>
+<p><em>First, run the <code>samtools</code> command on its own.</em></p>
         </div>
       </div>
       </article>

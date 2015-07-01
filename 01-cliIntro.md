@@ -1,7 +1,7 @@
 ---
 layout: page
 title: The Unix Shell
-subtitle: CLI First type
+subtitle: The Command Line
 minutes: 15-20
 ---
 > ## Learning Objectives {.objectives}

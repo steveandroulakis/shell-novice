@@ -24,7 +24,7 @@ These lessons will start you on a path towards using these resources effectively
 > searching for files with `grep` and `find`, and writing simple loops
 > and scripts, you probably won't learn much from this lesson.
 
-> ## Getting ready {.getready}
+<!-- > ## Getting ready {.getready}
 >
 > You need to download some files to follow this lesson:
 > 
@@ -35,17 +35,17 @@ These lessons will start you on a path towards using these resources effectively
 >
 > ~~~ {.input}
 > $ cd && cd Desktop/shell-novice/data
-> ~~~
+> ~~~ -->
 
 ## Topics
 
 1.  [Breaking The Ice](00-breakingTheIce.html)
-2.  [CLI inroduction](01-cliIntro.html)
-3.  [The root and The path](02-theRoot-thePath.html)
-4.  [Create Things](03-create.html)
-5.  [Chaining commands together with pipe](04-pipe.html)
-6.  [How to get to know a new CLI tool](05-exploreTools.html)
-6.  [Automate with loops](06-loop.html)
+2.  [The Command Line](01-cliIntro.html)
+3.  [The root and the path](02-theRoot-thePath.html)
+4.  [Creating Things](03-create.html)
+5.  [Chaining commands together with the pipe](04-pipe.html)
+6.  [Getting to know a bioinformatic tool](05-exploreTools.html)
+6.  [Automating processing using loops](06-loop.html)
 7.  [Finding Things](07-find.html)
 
 ## Other Resources

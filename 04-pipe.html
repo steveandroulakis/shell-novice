@@ -27,7 +27,7 @@
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <h1 class="title">The Unix Shell</h1>
-          <h2 class="subtitle">Chaining commands together with pipe</h2>
+          <h2 class="subtitle">Chaining commands together with the pipe</h2>
 <section class="objectives panel panel-warning">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
@@ -46,38 +46,40 @@
 </section>
 <h3 id="how-to-get-data-to-and-from-the-server..">How to get data to and from the server..?</h3>
 <ul>
-<li><code>scp</code> easy peasy, just like standard <code>cp</code> works, <code>copy &quot;what you want to copy&quot; &quot;where you want it&quot;</code> The hardest thing will be understanding the path to and from server. However REMEMBER that everything starts at the root. Just give a full path and you will never go wrong.</li>
+<li><code>scp</code> ..easy peasy, just like standard <code>cp</code> works, <code>copy &quot;what you want to copy, where you want it&quot;</code> The hardest thing will be understanding the path to and from server. They have to different file systems, paths, trees. However REMEMBER that everything starts at the root. Just give a full path and you will never go wrong.</li>
 </ul>
 <h4 id="copy-to-the-server">Copy TO the server</h4>
 <p>e.g <code>scp test.txt crunch.erc.monash.edu:/home/john/</code></p>
-<p>The path to the server will always start with the server name e.g crunch.erc.monash.edu pluse <code>:</code> everything afer is just your normal full path..</p>
+<p>The path to the server will always start with the server name e.g crunch.erc.monash.edu pluse <code>:</code> everything after is just your normal full path..</p>
 <h4 id="copy-from-the-server">Copy FROM the server</h4>
 <p>e.g <code>scp crunch.erc.monash.edu:/home/john/test.txt /home/john</code> OR simply dot e.g <code>scp crunch.erc.monash.edu:/home/john/test.txt .</code></p>
-<h4 id="download-to-the-server">Download TO the server</h4>
+<p>Note: Using SCP on Windows is not supported out of the box! However there are downloadable point and click (GUI) programs such as WinSCP and Cyberduck that can help you.</p>
+<h4 id="im-on-my-server-and-i-want-to-get-a-file-from-the-internet..">I’m on my server and I want to get a file from the internet..</h4>
 <ul>
 <li><code>wget</code></li>
 </ul>
 <p>e.g <code>wget iftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000005845.2_ASM584v2/GCF_000005845.2_ASM584v2_genomic.fna.gz</code></p>
+<p>The NCBI (National Center for Biotechnology Information) is one of several very large centres with public research data. wget is a great way to get these files for processing (eg. reference genome indexes).</p>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Download data set from URL</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Download a data set from a URL</h2>
 </div>
 <div class="panel-body">
 <ol style="list-style-type: decimal">
-<li>Download zip file into your home directory</li>
-<li>Use unzip command to get the content of the unzip file</li>
-<li>Also try to unzip FASTQ files</li>
+<li>Download a zip file into your home directory</li>
+<li>Use the unzip command to get the content of the unzip file</li>
+<li>Also try to unzip FASTQ.gz files.. what happens?</li>
 </ol>
 </div>
 </section>
 <h3 id="unix-philosophy">Unix philosophy</h3>
-<p>One last thing I would like to mention is Unix philosophy. The essence of Unix philosophy is simplicity. Here is three dot points that summary Unix philosophy:</p>
+<p>One last thing I would like to mention is the Unix philosophy. The essence of Unix philosophy is simplicity. Here are three dot points that summarize the Unix philosophy:</p>
 <ul>
-<li>Every tools and/or command made to do one simple task</li>
-<li>Many different commands can be chained together into one super command</li>
-<li>Therefore number of different commands combination is limited by your imagination or need</li>
+<li>Every tool/command is made to do one simple task</li>
+<li>Because of this, different commands can be chained together into one super command</li>
+<li>Therefore the number of different commands usable in combination is limited by your imagination or need</li>
 </ul>
-<p><strong>Command line is more like LEGO and GUI is like an action figure, but you can’t chop and change</strong></p>
+<p><strong>The command line is more like LEGO. You can build a tonne of stuff with LEGO. Point and click applications are an action figure, slick, but not hugely modifiable.</strong></p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> ref-files
 <span class="kw">/ref-files</span>$ <span class="kw">ls</span></code></pre>
 <pre class="output"><code>bacterial-genome.fasta</code></pre>
@@ -86,7 +88,7 @@
 <h2><span class="glyphicon glyphicon-pencil"></span>Renaming fasta file</h2>
 </div>
 <div class="panel-body">
-<p>Rename fasta such that its extention is .fa insttead of .fasta</p>
+<p>Rename the fasta file so that its extension is .fa instead of .fasta</p>
 </div>
 </section>
 <aside class="callout panel panel-info">
