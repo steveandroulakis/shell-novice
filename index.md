@@ -29,7 +29,7 @@ These lessons will start you on a path towards using these resources effectively
 > You need to download some files to follow this lesson:
 > 
 > 1. Make a new folder in your Desktop called `shell-novice`.
-> 2. Download [shell-novice-data.zip](./shell-novice-data.zip) and move the file to this folder.
+> 2. Download [next-gen-data.zip](./next-gen-data.zip) and move the file to this folder.
 > 3. If it's not unzipped yet, double-click on it to unzip it. You should end up with a new folder called `data`.
 > 4. You can access this folder from the Unix shell with:
 >
@@ -43,9 +43,10 @@ These lessons will start you on a path towards using these resources effectively
 2.  [CLI inroduction](01-cliIntro.html)
 3.  [The root and The path](02-theRoot-thePath.html)
 4.  [Create Things](03-create.html)
-5.  [BWA index and mapping](04-loop.html)
-6.  [SAMtools](04-loop.html)
-7.  [Automate with loops](04-loop.html)
+5.  [Chaining commands together with pipe](04-pipe.html)
+6.  [How to get to know a new CLI tool](05-exploreTools.html)
+6.  [Automate with loops](06-loop.html)
+7.  [Finding Things](07-find.html)
 
 ## Other Resources
 
