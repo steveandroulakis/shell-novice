@@ -44,13 +44,13 @@
 </ul>
 </div>
 </section>
-<h3 id="how-to-get-data-to-and-from-the-server..">How to get data to and from the server..?</h3>
+<h3 id="but-first..-how-do-i-get-data-to-and-from-a-server">But first.. how do I get data to and from a server?</h3>
 <ul>
 <li><code>scp</code> ..easy peasy, just like standard <code>cp</code> works, <code>copy &quot;what you want to copy, where you want it&quot;</code> The hardest thing will be understanding the path to and from server. They have to different file systems, paths, trees. However REMEMBER that everything starts at the root. Just give a full path and you will never go wrong.</li>
 </ul>
 <h4 id="copy-to-the-server">Copy TO the server</h4>
 <p>e.g <code>scp test.txt crunch.erc.monash.edu:/home/john/</code></p>
-<p>The path to the server will always start with the server name e.g crunch.erc.monash.edu pluse <code>:</code> everything after is just your normal full path..</p>
+<p>The path to the server will always start with the server name e.g crunch.erc.monash.edu plus <code>:</code> ..everything after is just your normal full path..</p>
 <h4 id="copy-from-the-server">Copy FROM the server</h4>
 <p>e.g <code>scp crunch.erc.monash.edu:/home/john/test.txt /home/john</code> OR simply dot e.g <code>scp crunch.erc.monash.edu:/home/john/test.txt .</code></p>
 <p>Note: Using SCP on Windows is not supported out of the box! However there are downloadable point and click (GUI) programs such as WinSCP and Cyberduck that can help you.</p>
@@ -72,8 +72,8 @@
 </ol>
 </div>
 </section>
-<h3 id="unix-philosophy">Unix philosophy</h3>
-<p>One last thing I would like to mention is the Unix philosophy. The essence of Unix philosophy is simplicity. Here are three dot points that summarize the Unix philosophy:</p>
+<h3 id="the-unix-philosophy-makes-chaining-tools-and-automation-easy.">The ‘Unix Philosophy’ makes chaining tools and automation easy.</h3>
+<p>Command line tools are built with the simple Unix philosophy in mind. Here are three dot points that summarize the Unix philosophy:</p>
 <ul>
 <li>Every tool/command is made to do one simple task</li>
 <li>Because of this, different commands can be chained together into one super command</li>
@@ -85,7 +85,7 @@
 <pre class="output"><code>bacterial-genome.fasta</code></pre>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Renaming fasta file</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Rename your fasta file</h2>
 </div>
 <div class="panel-body">
 <p>Rename the fasta file so that its extension is .fa instead of .fasta</p>

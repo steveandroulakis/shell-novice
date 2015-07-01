@@ -14,7 +14,7 @@ minutes: 15
 > *   Construct command pipelines with two or more stages.
 > *   Explain what usually happens if a program or pipeline isn't given any input to process.
 
-### How to get data to and from the server..?
+### But first.. how do I get data to and from a server?
 
 - `scp` ..easy peasy, just like standard `cp` works, `copy "what you want to copy, where you want it"`
 The hardest thing will be understanding the path to and from server. They have to different file systems, paths, trees. However REMEMBER that everything starts at the root. Just give a full path and you will never go wrong.
@@ -23,7 +23,7 @@ The hardest thing will be understanding the path to and from server. They have t
 
 e.g `scp test.txt crunch.erc.monash.edu:/home/john/`
 
-The path to the server will always start with the server name e.g crunch.erc.monash.edu pluse `:` everything
+The path to the server will always start with the server name e.g crunch.erc.monash.edu plus `:` ..everything
 after is just your normal full path..
 
 #### Copy FROM the server
@@ -48,9 +48,9 @@ The NCBI (National Center for Biotechnology Information) is one of several very 
 > 2. Use the unzip command to get the content of the unzip file
 > 3. Also try to unzip FASTQ.gz files.. what happens?
 
-### Unix philosophy
+### The 'Unix Philosophy' makes chaining tools and automation easy.
 
-One last thing I would like to mention is the Unix philosophy. The essence of Unix philosophy is simplicity.
+Command line tools are built with the simple Unix philosophy in mind.
 Here are three dot points that summarize the Unix philosophy:
 
 - Every tool/command is made to do one simple task
@@ -67,7 +67,7 @@ $ cd ref-files
 bacterial-genome.fasta
 ~~~
 
-> ## Renaming fasta file {.challenge}
+> ## Rename your fasta file {.challenge}
 >
 > Rename the fasta file so that its extension is .fa instead of .fasta
 
